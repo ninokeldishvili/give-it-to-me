@@ -70,13 +70,28 @@ body {
   width: 100px;
   height: auto;
 }
-.header .search {
-  float: right;
+
+.user-settings {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.user-settings .user {
+  padding: 0 15px;
+}
+.user-settings .user:hover {
+  cursor: pointer;
+}
+.user-settings .lang-switch:hover {
+  cursor: pointer;
+}
+
+.nk-input {
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
 }
-.header .search input {
+.nk-input input {
   border: 1px solid #b5b5b5;
   border-radius: 30px;
   padding: 10px 15px;
@@ -84,32 +99,18 @@ body {
   width: 390px;
   color: #818080;
 }
-.header .search input:focus {
+.nk-input input:focus {
   outline: none;
 }
-.header .search .search-btn {
+.nk-input .nk-btn {
   background-color: #07868f;
   border-radius: 30px;
   padding: 10px 35px;
   color: #fff;
   margin-left: -40px;
 }
-.header .search .search-btn:hover {
+.nk-input .nk-btn:hover {
   cursor: pointer;
   background-color: #03646b;
   color: #b5b5b5;
-}
-.header .user-settings {
-  display: flex;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.header .user-settings .user {
-  padding: 0 15px;
-}
-.header .user-settings .user:hover {
-  cursor: pointer;
-}
-.header .user-settings .lang-switch:hover {
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

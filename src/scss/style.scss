@@ -50,24 +50,24 @@ body {
 }
 
 .right-circle {
-    background: #42075b;
-    background: linear-gradient(90deg, #07868f 0%, #42b8c1 51%, #25d5b8 100%);
-    width: 250px;
-    height: 250px;
+  background: #42075b;
+  background: linear-gradient(90deg, #07868f 0%, #42b8c1 51%, #25d5b8 100%);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-right: 0px;
+  margin-top: -125px;
+
+  .right-circle-inner {
+    background: #818080;
+    background: linear-gradient(0deg, #818080 0%, #b5b5b5 24%, #f4f4f4 100%);
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    margin-right: 0px;
-    margin-top: -125px;
-  
-    .right-circle-inner {
-      background: #818080;
-      background: linear-gradient(0deg, #818080 0%, #b5b5b5 24%, #f4f4f4 100%);
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-top: 190px;
-      border: 2px solid $light-color;
-    }
+    margin-top: 190px;
+    border: 2px solid $light-color;
   }
+}
 
 .container {
   width: 60%;
@@ -85,53 +85,52 @@ body {
     width: 100px;
     height: auto;
   }
+}
 
-  .search {
-    float: right;
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    input {
-      border: 1px solid $main-gray;
-      border-radius: $border-radius;
-      padding: 10px 15px;
-      font-size: 18px;
-      width: 390px;
-      color: $font-color;
-      &:focus {
-        outline: none;
-      }
-    }
-    .search-btn {
-      background-color: $main-green;
-      border-radius: $border-radius;
-      padding: 10px 35px;
-      color: #fff;
-      margin-left: -40px;
+.user-settings {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
 
-      &:hover {
-        cursor: pointer;
-        background-color: $btn-hover;
-        color: $main-gray;
-      }
+  .user {
+    padding: 0 15px;
+    &:hover {
+      cursor: pointer;
     }
   }
-
-  .user-settings {
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-
-    .user {
-      padding: 0 15px;
-      &:hover {
-        cursor: pointer;
-      }
+  .lang-switch {
+    &:hover {
+      cursor: pointer;
     }
-    .lang-switch {
-      &:hover {
-        cursor: pointer;
-      }
+  }
+}
+
+.nk-input {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  input {
+    border: 1px solid $main-gray;
+    border-radius: $border-radius;
+    padding: 10px 15px;
+    font-size: 18px;
+    width: 390px;
+    color: $font-color;
+    &:focus {
+      outline: none;
+    }
+  }
+  .nk-btn {
+    background-color: $main-green;
+    border-radius: $border-radius;
+    padding: 10px 35px;
+    color: #fff;
+    margin-left: -40px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $btn-hover;
+      color: $main-gray;
     }
   }
 }
