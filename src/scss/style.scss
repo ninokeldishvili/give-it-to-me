@@ -134,3 +134,26 @@ body {
     }
   }
 }
+
+.user-info{
+  border: 3px solid #b5b5b5;
+  margin-top: 66px;
+  width: 315px;
+  left: -235px;
+  height: 540px;
+  border-radius: 40px;
+  position: relative;
+  background-color: $light-color;
+}
+
+.gift-list{
+  border: 3px solid #b5b5b5;
+  margin-top: 50px;
+  /* margin-left: 0; */
+  left: 615px;
+  width: 870px;
+  height: 750px;
+  border-radius: 40px;
+  position: absolute;
+  background-color: $light-color;
+}
