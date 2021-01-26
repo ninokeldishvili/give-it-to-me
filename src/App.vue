@@ -6,9 +6,8 @@
     <div class="container">
       <Header />
       <div style="display:flex">
-        <div class="gift-list">
-            <div class="user-info"></div>
-        </div>
+        <div class="user-info"></div>
+        <div class="gift-list"></div>
       </div>
     </div>
     <div class="right-circle">

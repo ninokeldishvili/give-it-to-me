@@ -135,25 +135,57 @@ body {
   }
 }
 
-.user-info{
+.user-info {
   border: 3px solid #b5b5b5;
-  margin-top: 66px;
+  margin-top: 120px;
   width: 315px;
-  left: -235px;
-  height: 540px;
+  height: 480px;
   border-radius: 40px;
   position: relative;
-  background-color: $light-color;
+  background-color: #f4f4f4;
 }
 
-.gift-list{
+.gift-list {
   border: 3px solid #b5b5b5;
   margin-top: 50px;
-  /* margin-left: 0; */
-  left: 615px;
-  width: 870px;
-  height: 750px;
+  margin-left: -85px;
+  width: 85%;
+  height: 75vh;
   border-radius: 40px;
-  position: absolute;
-  background-color: $light-color;
+  background-color: #f4f4f4;
+}
+
+@media (max-width: 320px) {
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+}
+
+@media (min-width: 900px) and (max-width: 1024px) {
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 1200px) {
+  .container{
+    width: 100%;
+  }
+
+  .left-circle{
+    display: none;
+  }
+
+  .right-circle{
+    display:none;
+  }
 }

@@ -117,10 +117,9 @@ body {
 
 .user-info {
   border: 3px solid #b5b5b5;
-  margin-top: 66px;
+  margin-top: 120px;
   width: 315px;
-  left: -235px;
-  height: 540px;
+  height: 480px;
   border-radius: 40px;
   position: relative;
   background-color: #f4f4f4;
@@ -129,11 +128,23 @@ body {
 .gift-list {
   border: 3px solid #b5b5b5;
   margin-top: 50px;
-  /* margin-left: 0; */
-  left: 615px;
-  width: 870px;
-  height: 750px;
+  margin-left: -85px;
+  width: 85%;
+  height: 75vh;
   border-radius: 40px;
-  position: absolute;
   background-color: #f4f4f4;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+
+  .left-circle {
+    display: none;
+  }
+
+  .right-circle {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
