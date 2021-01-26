@@ -6,6 +6,7 @@ $main-gray: #b5b5b5;
 $border-radius: 30px;
 $font-color: #818080;
 $btn-hover: #03646b;
+$dark-font-color:#504e4e;
 
 * {
   box-sizing: border-box;
@@ -153,6 +154,42 @@ body {
   height: 75vh;
   border-radius: 40px;
   background-color: #f4f4f4;
+  padding: 50px 50px 50px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+
+  .gift-card {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0 10px 20px 10px;
+    min-width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    height: 190px;
+    padding: 10px;
+
+    .img-container{
+      width: 120px;
+      height: 120px;
+
+      img{
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+  }
+  a {
+    text-decoration: none;
+    color: $font-color;
+    &:hover{
+      color: $dark-font-color;
+      cursor: pointer;
+    }
+  }
 }
 
 @media (max-width: 320px) {
@@ -177,15 +214,15 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
-  .container{
+  .container {
     width: 100%;
   }
 
-  .left-circle{
+  .left-circle {
     display: none;
   }
 
-  .right-circle{
-    display:none;
+  .right-circle {
+    display: none;
   }
 }

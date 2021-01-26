@@ -133,6 +133,38 @@ body {
   height: 75vh;
   border-radius: 40px;
   background-color: #f4f4f4;
+  padding: 50px 50px 50px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.gift-list .gift-card {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 10px 20px 10px;
+  min-width: 150px;
+  max-width: 150px;
+  overflow: hidden;
+  height: 190px;
+  padding: 10px;
+}
+.gift-list .gift-card .img-container {
+  width: 120px;
+  height: 120px;
+}
+.gift-list .gift-card .img-container img {
+  width: 120px;
+  height: 120px;
+}
+.gift-list a {
+  text-decoration: none;
+  color: #818080;
+}
+.gift-list a:hover {
+  color: #504e4e;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
