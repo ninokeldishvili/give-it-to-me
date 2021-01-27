@@ -31,7 +31,7 @@
 <script>
 import Header from "./components/Header.vue";
 import Gift from "./components/Gift.vue";
-import data from "../src/mockdata"
+import axios from "axios";
 
 export default {
   name: "App",
@@ -41,8 +41,20 @@ export default {
   },
   data() {
     return {
-      gifts: data,
+      gifts: []
     };
+  },
+  methods: {
+    getGifts() {
+      axios
+        .get("https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts")
+        .then(response => {
+          this.gifts = response.data;
+        });
+    }
+  },
+  mounted(){
+    this.getGifts();
   }
 };
 </script>
