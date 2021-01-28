@@ -1,12 +1,16 @@
 $light-color: #f4f4f4;
 $main-green: #07868f;
-$main-purple: #8a25b1;
+$main-purple: #07868f;
 $main-dark-purple: #42075b;
 $main-gray: #b5b5b5;
 $border-radius: 30px;
 $font-color: #818080;
 $btn-hover: #03646b;
-$dark-font-color:#504e4e;
+$hover-font-color: #c7c6c6;
+$gift-image-width: 120px;
+$gift-image-height: 120px;
+$btn-gradient: linear-gradient(90deg, rgba(66,184,193,1) 0%, rgba(7,134,143,1) 100%);
+$btn-gradient-hover: linear-gradient(0deg, rgba(7,134,143,1) 15%, rgba(66,184,193,1) 100%);
 
 * {
   box-sizing: border-box;
@@ -121,18 +125,20 @@ body {
       outline: none;
     }
   }
-  .nk-btn {
-    background-color: $main-green;
-    border-radius: $border-radius;
-    padding: 10px 35px;
-    color: #fff;
-    margin-left: -40px;
+}
 
-    &:hover {
-      cursor: pointer;
-      background-color: $btn-hover;
-      color: $main-gray;
-    }
+.nk-btn {
+  background: $main-green;
+  border-radius: $border-radius;
+  padding: 10px 35px;
+  color: #fff;
+  // margin-left: -40px;
+
+  &:hover {
+    cursor: pointer;
+    background: $btn-hover;
+    background: $btn-gradient-hover;
+    color: $hover-font-color
   }
 }
 
@@ -171,22 +177,47 @@ body {
     height: 190px;
     padding: 10px;
 
-    .img-container{
-      width: 120px;
-      height: 120px;
-
-      img{
-        width: 120px;
-        height: 120px;
-      }
+    &:hover .img-container .gift-btns,
+    &:hover .img-container .black-hover {
+      display: flex;
     }
 
+    .img-container {
+      width: $gift-image-width;
+      height: $gift-image-height;
+
+      img {
+        width: $gift-image-width;
+        height: $gift-image-height;
+      }
+
+      .black-hover {
+        background: $main-green;
+        opacity: 0.5;
+        width: $gift-image-width;
+        height: $gift-image-height;
+        position: absolute;
+        transform: translate(0px, -127px);
+        display: none;
+      }
+
+      .gift-btns {
+        color: white;
+        width: $gift-image-width;
+        height: $gift-image-height;
+        position: absolute;
+        transform: translate(0px, -127px);
+        justify-content: center;
+        flex-direction: column;
+        display: none;
+      }
+    }
   }
   a {
     text-decoration: none;
     color: $font-color;
-    &:hover{
-      color: $dark-font-color;
+    &:hover {
+      color: $hover-font-color;
       cursor: pointer;
     }
   }

@@ -1,13 +1,16 @@
 <template>
     <div class="nk-input">
       <input :type="type" />
-      <div class="nk-btn" v-if="hasButton">{{btnText}}</div>
+      <Button v-if="hasButton" :text="btnText"/>
     </div>
 </template>
 
 <script>
+import Button from '../components/Button'
+
 export default {
   name: "Input",
+  components:{Button},
   props: {
     type: {
       type: String,
