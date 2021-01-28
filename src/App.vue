@@ -7,19 +7,7 @@
       <Header />
       <div style="display:flex">
         <div class="user-info"></div>
-        <div class="gift-list">
-          <div class="gifts" v-for="gift in gifts" :key="gift.id">
-            <Gift
-              :id="gift.id"
-              :title="gift.title"
-              :img_url="gift.img_url"
-              :user_id="gift.user_id"
-              :status="gift.status"
-              :url="gift.url"
-              :data="data"
-            />
-          </div>
-        </div>
+        <Gifts/>
       </div>
     </div>
     <div class="right-circle">
@@ -30,31 +18,13 @@
 
 <script>
 import Header from "./components/Header.vue";
-import Gift from "./components/Gift.vue";
-import axios from "axios";
+import Gifts from "./components/Gifts.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Gift
-  },
-  data() {
-    return {
-      gifts: []
-    };
-  },
-  methods: {
-    getGifts() {
-      axios
-        .get("https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts")
-        .then(response => {
-          this.gifts = response.data;
-        });
-    }
-  },
-  mounted(){
-    this.getGifts();
+    Gifts
   }
 };
 </script>
