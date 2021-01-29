@@ -3,18 +3,18 @@ import axios from "axios";
 
 export default createStore({
   state: {
-    gifts: [],
+    wishes: [],
   },
   getters: {
-    allGifts: (state) => state.gifts,
+    allWishes: (state) => state.wishes,
   },
   actions: {
-    async fetchGifts({ commit }) {
+    async fetchWishes({ commit }) {
       const response = await axios.get(
         "https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts"
       );
 
-      commit("setGifts", response.data);
+      commit("setWishes", response.data);
     },
     async removeWish({commit}, id){
       await axios.delete(
@@ -24,8 +24,8 @@ export default createStore({
     }
   },
   mutations: {
-    setGifts: (state, gifts) => (state.gifts = gifts),
-    removeWish: (state, id) => (state.gifts = state.gifts.filter(g=>g.id != id))
+    setWishes: (state, wishes) => (state.wishes = wishes),
+    removeWish: (state, id) => (state.wishes = state.wishes.filter(g=>g.id != id))
   },
   modules: {},
 });

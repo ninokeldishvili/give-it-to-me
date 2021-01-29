@@ -7,7 +7,7 @@
       <Header />
       <div style="display:flex">
         <div class="user-info"></div>
-        <Gifts/>
+        <Wishes/>
       </div>
     </div>
     <div class="right-circle">
@@ -18,13 +18,13 @@
 
 <script>
 import Header from "./components/Header.vue";
-import Gifts from "./components/Gifts.vue";
+import Wishes from "./components/Wishes.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Gifts
+    Wishes
   }
 };
 </script>

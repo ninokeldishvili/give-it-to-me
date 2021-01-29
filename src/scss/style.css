@@ -117,7 +117,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.gift-list {
+.wish-list {
   border: 3px solid #b5b5b5;
   margin-top: 50px;
   margin-left: -85px;
@@ -131,23 +131,23 @@ body {
   flex-wrap: wrap;
   overflow: auto;
 }
-.gift-list .gift-card {
+.wish-list .wish-card {
   margin: 0 10px 20px 10px;
   width: 150px;
   height: 190px;
   text-align: center;
 }
-.gift-list .gift-card:hover .img-container .gift-btns, .gift-list .gift-card:hover .img-container .black-hover {
+.wish-list .wish-card:hover .img-container .wish-btns, .wish-list .wish-card:hover .img-container .black-hover {
   display: flex;
 }
-.gift-list .gift-card:hover .img-container .overlay {
+.wish-list .wish-card:hover .img-container .overlay {
   display: block;
   background: rgba(0, 0, 0, 0.3);
 }
-.gift-list .gift-card:hover .img-container .option-btns {
+.wish-list .wish-card:hover .img-container .option-btns {
   opacity: 1;
 }
-.gift-list .gift-card .img-container {
+.wish-list .wish-card .img-container {
   position: relative;
   width: 100%;
   height: 150px;
@@ -155,7 +155,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.gift-list .gift-card .img-container .overlay {
+.wish-list .wish-card .img-container .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -164,32 +164,32 @@ body {
   background: rgba(0, 0, 0, 0);
   transition: background 0.5s ease;
 }
-.gift-list .gift-card .img-container img {
+.wish-list .wish-card .img-container img {
   width: 150px;
   height: 150px;
   position: absolute;
 }
-.gift-list .gift-card .img-container .option-btns {
+.wish-list .wish-card .img-container .option-btns {
   position: absolute;
   text-align: center;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
-.gift-list .gift-card .img-container .option-btns .nk-btn {
+.wish-list .wish-card .img-container .option-btns .nk-btn {
   text-align: center;
   border: solid 2px white;
   margin: 5px;
   z-index: 1;
   background: none;
 }
-.gift-list .gift-card .img-container .option-btns .nk-btn:hover {
+.wish-list .wish-card .img-container .option-btns .nk-btn:hover {
   text-decoration: underline;
 }
-.gift-list a {
+.wish-list a {
   text-decoration: none;
   color: #818080;
 }
-.gift-list a:hover {
+.wish-list a:hover {
   color: #555454;
   cursor: pointer;
 }

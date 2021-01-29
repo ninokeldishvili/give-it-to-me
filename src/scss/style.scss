@@ -7,8 +7,8 @@ $border-radius: 30px;
 $font-color: #818080;
 $btn-hover: #03646b;
 $hover-font-color: #555454;
-$gift-image-width: 150px;
-$gift-image-height: 150px;
+$wish-image-width: 150px;
+$wish-image-height: 150px;
 $btn-gradient: linear-gradient(
   90deg,
   rgba(66, 184, 193, 1) 0%,
@@ -150,7 +150,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.gift-list {
+.wish-list {
   border: 3px solid #b5b5b5;
   margin-top: 50px;
   margin-left: -85px;
@@ -164,13 +164,13 @@ body {
   flex-wrap: wrap;
   overflow: auto;
 
-  .gift-card {
+  .wish-card {
     margin: 0 10px 20px 10px;
-    width: $gift-image-width;
-    height: $gift-image-height + 40px;
+    width: $wish-image-width;
+    height: $wish-image-height + 40px;
     text-align: center;
 
-    &:hover .img-container .gift-btns,
+    &:hover .img-container .wish-btns,
     &:hover .img-container .black-hover {
       display: flex;
     }
@@ -184,7 +184,7 @@ body {
     .img-container {
       position: relative;
       width: 100%;
-      height: $gift-image-height;
+      height: $wish-image-height;
       align-items: center;
       display: flex;
       justify-content: center;
@@ -200,8 +200,8 @@ body {
       }
 
       img {
-        width: $gift-image-width;
-        height: $gift-image-height;
+        width: $wish-image-width;
+        height: $wish-image-height;
         position: absolute;
       }
 

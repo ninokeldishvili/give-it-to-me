@@ -1,20 +1,20 @@
 <template>
-  <div class="gift-list">
-    <div class="gifts" v-for="gift in allGifts" :key="gift.id">
-      <div class="gift-card">
+  <div class="wish-list">
+    <div class="wishes" v-for="wish in allWishes" :key="wish.id">
+      <div class="wish-card">
         <div class="img-container">
-          <img :src="gift.img_url" alt="gift-for-you" />
+          <img :src="wish.img_url" alt="Wish" />
           <div class="overlay"></div>
           <div class="option-btns">
-            <a :href="gift.url" target="blank">
+            <a :href="wish.url" target="blank">
               <Button text="View" />
             </a>
-            <div @click="removeWish(gift.id)">
+            <div @click="removeWish(wish.id)">
               <Button text="Remove" />
             </div>
           </div>
         </div>
-        <span>{{ gift.title }}</span>
+        <span>{{ wish.title }}</span>
       </div>
     </div>
   </div>
@@ -26,14 +26,14 @@ import { mapGetters, mapActions } from "vuex";
 import Button from "../components/Button";
 
 export default {
-  name: "Gifts",
+  name: "Wishes",
   components: { Button },
   methods: {
-    ...mapActions(["fetchGifts", "removeWish"])
+    ...mapActions(["fetchWishes", "removeWish"])
   },
-  computed: mapGetters(["allGifts"]),
+  computed: mapGetters(["allWishes"]),
   created() {
-    this.fetchGifts();
+    this.fetchWishes();
   }
 };
 </script>
