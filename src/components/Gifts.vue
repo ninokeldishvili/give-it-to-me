@@ -7,9 +7,11 @@
           <div class="overlay"></div>
           <div class="option-btns">
             <a :href="gift.url" target="blank">
-              <Button text="View"/>
+              <Button text="View" />
             </a>
-            <Button text="Remove" />
+            <div @click="removeWish(gift.id)">
+              <Button text="Remove" />
+            </div>
           </div>
         </div>
         <span>{{ gift.title }}</span>
@@ -27,7 +29,7 @@ export default {
   name: "Gifts",
   components: { Button },
   methods: {
-    ...mapActions(["fetchGifts"])
+    ...mapActions(["fetchGifts", "removeWish"])
   },
   computed: mapGetters(["allGifts"]),
   created() {

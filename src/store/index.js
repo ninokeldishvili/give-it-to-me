@@ -16,9 +16,16 @@ export default createStore({
 
       commit("setGifts", response.data);
     },
+    async removeWish({commit}, id){
+      await axios.delete(
+        `https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/${id}`
+      )
+      commit("removeWish", id);
+    }
   },
   mutations: {
     setGifts: (state, gifts) => (state.gifts = gifts),
+    removeWish: (state, id) => (state.gifts = state.gifts.filter(g=>g.id != id))
   },
   modules: {},
 });
