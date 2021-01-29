@@ -6,12 +6,10 @@
           <div class="img-container">
             <img :src="gift.img_url" alt="gift-for-you" />
             <div class="overlay"></div>
-            <div class="remove-btn"><Button text="Remove"/></div>
-
-            <!-- <div class="gift-btns">
-              <div class="view"><Button text="View"/></div>
-              <div class="remove"><Button text="Remove"/></div>
-            </div> -->
+            <div class="option-btns">
+              <Button text="View" />
+              <Button text="Remove" />
+            </div>
           </div>
           <span>{{ gift.title }}</span>
         </div>
@@ -23,11 +21,11 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import Button from '../components/Button'
+import Button from "../components/Button";
 
 export default {
   name: "Gifts",
-  components:{Button},
+  components: { Button },
   methods: {
     ...mapActions(["fetchGifts"])
   },

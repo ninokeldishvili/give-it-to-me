@@ -118,7 +118,6 @@ body {
   display: flex;
   input {
     border: 1px solid $main-gray;
-    border-radius: $border-radius;
     padding: 10px 15px;
     font-size: 18px;
     width: 390px;
@@ -131,10 +130,8 @@ body {
 
 .nk-btn {
   background: $main-green;
-  border-radius: $border-radius;
-  padding: 10px 35px;
+  padding: 7px 25px;
   color: #fff;
-  // margin-left: -40px;
 
   &:hover {
     cursor: pointer;
@@ -171,7 +168,7 @@ body {
     margin: 0 10px 20px 10px;
     width: $gift-image-width;
     height: $gift-image-height + 40px;
-    border: 2px solid red;
+    text-align: center;
 
     &:hover .img-container .gift-btns,
     &:hover .img-container .black-hover {
@@ -179,9 +176,9 @@ body {
     }
     &:hover .img-container .overlay {
       display: block;
-      background: rgba(0, 0, 0, .3);
+      background: rgba(0, 0, 0, 0.3);
     }
-    &:hover .img-container .remove-btn {
+    &:hover .img-container .option-btns {
       opacity: 1;
     }
     .img-container {
@@ -191,7 +188,6 @@ body {
       align-items: center;
       display: flex;
       justify-content: center;
-  
 
       .overlay {
         position: absolute;
@@ -203,38 +199,30 @@ body {
         transition: background 0.5s ease;
       }
 
-
       img {
         width: $gift-image-width;
         height: $gift-image-height;
         position: absolute;
-
       }
 
-      .remove-btn{
+      .option-btns {
         position: absolute;
         text-align: center;
         opacity: 0;
         transition: opacity 0.35s ease;
-        .nk-btn{
+
+        .nk-btn {
           text-align: center;
-          color: white;
           border: solid 2px white;
+          margin: 5px;
           z-index: 1;
+          background: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
-      
 
-      .gift-btns {
-        color: white;
-        width: $gift-image-width;
-        height: $gift-image-height;
-        position: absolute;
-        transform: translate(0px, -127px);
-        justify-content: center;
-        flex-direction: column;
-        display: none;
-      }
     }
   }
   a {
