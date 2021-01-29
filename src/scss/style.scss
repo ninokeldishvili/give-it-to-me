@@ -6,17 +6,19 @@ $main-gray: #b5b5b5;
 $border-radius: 30px;
 $font-color: #818080;
 $btn-hover: #03646b;
-$hover-font-color: #c7c6c6;
-$gift-image-width: 120px;
-$gift-image-height: 120px;
-$btn-gradient: linear-gradient(90deg, rgba(66,184,193,1) 0%, rgba(7,134,143,1) 100%);
-$btn-gradient-hover: linear-gradient(0deg, rgba(7,134,143,1) 15%, rgba(66,184,193,1) 100%);
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+$hover-font-color: #555454;
+$gift-image-width: 150px;
+$gift-image-height: 150px;
+$btn-gradient: linear-gradient(
+  90deg,
+  rgba(66, 184, 193, 1) 0%,
+  rgba(7, 134, 143, 1) 100%
+);
+$btn-gradient-hover: linear-gradient(
+  0deg,
+  rgba(7, 134, 143, 1) 15%,
+  rgba(66, 184, 193, 1) 100%
+);
 
 body {
   background-color: $light-color;
@@ -138,7 +140,6 @@ body {
     cursor: pointer;
     background: $btn-hover;
     background: $btn-gradient-hover;
-    color: $hover-font-color
   }
 }
 
@@ -167,39 +168,62 @@ body {
   overflow: auto;
 
   .gift-card {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
     margin: 0 10px 20px 10px;
-    min-width: 150px;
-    max-width: 150px;
-    overflow: hidden;
-    height: 190px;
-    padding: 10px;
+    width: $gift-image-width;
+    height: $gift-image-height + 40px;
+    border: 2px solid red;
 
     &:hover .img-container .gift-btns,
     &:hover .img-container .black-hover {
       display: flex;
     }
-
+    &:hover .img-container .overlay {
+      display: block;
+      background: rgba(0, 0, 0, .3);
+    }
+    &:hover .img-container .remove-btn {
+      opacity: 1;
+    }
     .img-container {
-      width: $gift-image-width;
+      position: relative;
+      width: 100%;
       height: $gift-image-height;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.5s ease;
+      }
+
 
       img {
         width: $gift-image-width;
         height: $gift-image-height;
+        position: absolute;
+
       }
 
-      .black-hover {
-        background: $main-green;
-        opacity: 0.5;
-        width: $gift-image-width;
-        height: $gift-image-height;
+      .remove-btn{
         position: absolute;
-        transform: translate(0px, -127px);
-        display: none;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        .nk-btn{
+          text-align: center;
+          color: white;
+          border: solid 2px white;
+          z-index: 1;
+        }
       }
+      
 
       .gift-btns {
         color: white;

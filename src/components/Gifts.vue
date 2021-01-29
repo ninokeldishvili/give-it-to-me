@@ -5,11 +5,13 @@
         <div class="gift-card">
           <div class="img-container">
             <img :src="gift.img_url" alt="gift-for-you" />
-            <div class="black-hover"></div>
-            <div class="gift-btns">
+            <div class="overlay"></div>
+            <div class="remove-btn"><Button text="Remove"/></div>
+
+            <!-- <div class="gift-btns">
               <div class="view"><Button text="View"/></div>
               <div class="remove"><Button text="Remove"/></div>
-            </div>
+            </div> -->
           </div>
           <span>{{ gift.title }}</span>
         </div>
