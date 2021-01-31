@@ -1,23 +1,26 @@
 <template>
   <div class="wish-list">
     <div class="add-new wish-card">
-    +    
+      +
     </div>
-      <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
-        <div class="img-container">
-          <img :src="wish.img_url" alt="Wish" />
-          <div class="overlay"></div>
-          <div class="option-btns">
-            <a :href="wish.url" target="blank">
-              <Button text="View" />
-            </a>
-            <div @click="removeWish(wish.id)">
-              <Button text="Remove" />
-            </div>
+    <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
+      <div class="img-container">
+        <img :src="wish.img_url" alt="Wish" />
+        <div :class="wish.status? 'overlay' : 'overlay-reserved'"></div>
+        <div class="option-btns" v-if="wish.status">
+          <a :href="wish.url" target="blank">
+            <Button text="View" />
+          </a>
+          <div @click="removeWish(wish.id)">
+            <Button text="Remove" />
           </div>
         </div>
-        <span>{{ wish.title }}</span>
+        <div v-if="!wish.status" class="reserved-btn">
+            <Button text="Reserved" />
+        </div>
       </div>
+      <span>{{ wish.title }}</span>
+    </div>
   </div>
 </template>
 

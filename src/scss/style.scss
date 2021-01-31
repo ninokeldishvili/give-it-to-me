@@ -187,14 +187,23 @@ body {
       display: flex;
       justify-content: center;
 
-      .overlay {
+      .overlay,
+      .overlay-reserved {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+      }
+
+      .overlay {
         background: rgba(0, 0, 0, 0);
         transition: background 0.5s ease;
+      }
+
+      .overlay-reserved {
+        display: block;
+        background: rgba(0, 0, 0, 0.6);
       }
 
       img {
@@ -218,6 +227,19 @@ body {
           &:hover {
             text-decoration: underline;
           }
+        }
+      }
+
+      .reserved-btn {
+        position: absolute;
+        text-align: center;
+
+        .nk-btn {
+          text-align: center;
+          border: solid 2px white;
+          margin: 5px;
+          z-index: 1;
+          background: none;
         }
       }
     }
