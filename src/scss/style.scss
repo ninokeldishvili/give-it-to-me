@@ -46,7 +46,7 @@ body {
 
   .left-circle-inner {
     background: #818080;
-    background: linear-gradient(0deg, #818080 0%,$main-gray 24%, #f4f4f4 100%);
+    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, #f4f4f4 100%);
     border: 2px solid $light-color;
     width: 60px;
     height: 60px;
@@ -160,7 +160,6 @@ body {
   background-color: #f4f4f4;
   padding: 40px 50px 40px 130px;
   overflow: auto;
-}
 
   .wish-card {
     margin: 10px;
@@ -221,11 +220,10 @@ body {
           }
         }
       }
-
     }
   }
-  
-  .add-new{
+
+  .add-new {
     justify-content: center;
     display: flex;
     align-items: center;
