@@ -1,7 +1,9 @@
 <template>
   <div class="wish-list">
-    <div class="wishes" v-for="wish in allWishes" :key="wish.id">
-      <div class="wish-card">
+    <div class="add-new wish-card">
+    +    
+    </div>
+      <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
         <div class="img-container">
           <img :src="wish.img_url" alt="Wish" />
           <div class="overlay"></div>
@@ -16,7 +18,6 @@
         </div>
         <span>{{ wish.title }}</span>
       </div>
-    </div>
   </div>
 </template>
 

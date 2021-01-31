@@ -51,7 +51,6 @@ body {
 .container {
   width: 60%;
   margin: auto;
-  height: 100vh;
   padding: 30px;
 }
 
@@ -110,7 +109,7 @@ body {
 .user-info {
   border: 3px solid #b5b5b5;
   margin-top: 120px;
-  width: 315px;
+  width: 350px;
   height: 480px;
   border-radius: 40px;
   position: relative;
@@ -122,20 +121,19 @@ body {
   margin-top: 50px;
   margin-left: -85px;
   width: 85%;
-  height: 75vh;
+  height: 70vh;
+  max-height: 600px;
   border-radius: 40px;
   background-color: #f4f4f4;
-  padding: 50px 50px 50px 100px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  padding: 25px 50px 25px 130px;
   overflow: auto;
 }
 .wish-list .wish-card {
-  margin: 0 10px 20px 10px;
+  margin: 10px;
   width: 150px;
   height: 190px;
   text-align: center;
+  float: left;
 }
 .wish-list .wish-card:hover .img-container .wish-btns, .wish-list .wish-card:hover .img-container .black-hover {
   display: flex;
@@ -184,6 +182,15 @@ body {
 }
 .wish-list .wish-card .img-container .option-btns .nk-btn:hover {
   text-decoration: underline;
+}
+.wish-list .add-new {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border: 1px solid #b5b5b5;
+  font-size: 90px;
+  height: 150px;
+  cursor: pointer;
 }
 .wish-list a {
   text-decoration: none;
