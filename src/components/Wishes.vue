@@ -1,6 +1,6 @@
 <template>
   <div class="wish-list">
-    <div class="add-new wish-card" @click="addWish(this.wish)">
+    <div class="add-new wish-card" @click="showModal">
       +
     </div>
     <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
@@ -21,6 +21,7 @@
       </div>
       <span>{{ wish.title }}</span>
     </div>
+    <Modal :modalVisible="modalVisible"/>
   </div>
 </template>
 
@@ -28,21 +29,26 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 export default {
   name: "Wishes",
-  components: { Button },
+  components: { Button, Modal },
 
   data() {
     return {
       wish: {
         title: "asfasdfasdf",
         url: "http://google.com"
-      }
+      },
+      modalVisible: false,
     };
   },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "addWish"])
+    ...mapActions(["fetchWishes", "removeWish", "addWish"]),
+    showModal(){
+      this.modalVisible = true;
+    }
   },
   computed: mapGetters(["allWishes"]),
   created() {

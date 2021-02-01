@@ -84,7 +84,12 @@ body {
   margin-bottom: auto;
   display: flex;
 }
+.nk-input label {
+  margin: auto 30px auto 0;
+  font-size: 20px;
+}
 .nk-input input {
+  background-color: #f4f4f4;
   border: 1px solid #b5b5b5;
   padding: 10px 15px;
   font-size: 18px;
@@ -93,6 +98,22 @@ body {
 }
 .nk-input input:focus {
   outline: none;
+}
+
+.nk-modal {
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #f4f4f4;
+  padding: 30px;
+  border: 2px solid #b5b5b5;
+}
+.nk-modal .add-wish-btns-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nk-btn {
@@ -104,6 +125,18 @@ body {
   cursor: pointer;
   background: #03646b;
   background: linear-gradient(0deg, #07868f 15%, #42b8c1 100%);
+}
+
+.nk-cancel-btn {
+  padding: 7px 25px;
+  color: #818080;
+  border: 2px solid #818080;
+  float: right;
+  background: #f4f4f4;
+}
+.nk-cancel-btn:hover {
+  cursor: pointer;
+  background: #f4f4f4;
 }
 
 .user-info {

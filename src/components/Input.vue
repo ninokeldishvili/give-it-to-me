@@ -1,5 +1,6 @@
 <template>
     <div class="nk-input">
+      <label>{{label}}</label>
       <input :type="type" />
       <Button v-if="hasButton" :text="btnText"/>
     </div>
@@ -15,6 +16,10 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    label:{
+      type: String,
+      required: false
     },
     hasButton: {
       type: Boolean,
