@@ -1,12 +1,12 @@
 <template>
   <div class="wish-list">
-    <div class="add-new wish-card">
+    <div class="add-new wish-card" @click="addWish(this.wish)">
       +
     </div>
     <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
       <div class="img-container">
         <img :src="wish.img_url" alt="Wish" />
-        <div :class="wish.status? 'overlay' : 'overlay-reserved'"></div>
+        <div :class="wish.status ? 'overlay' : 'overlay-reserved'"></div>
         <div class="option-btns" v-if="wish.status">
           <a :href="wish.url" target="blank">
             <Button text="View" />
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div v-if="!wish.status" class="reserved-btn">
-            <Button text="Reserved" />
+          <Button text="Reserved" />
         </div>
       </div>
       <span>{{ wish.title }}</span>
@@ -32,8 +32,17 @@ import Button from "../components/Button";
 export default {
   name: "Wishes",
   components: { Button },
+
+  data() {
+    return {
+      wish: {
+        title: "asfasdfasdf",
+        url: "http://google.com"
+      }
+    };
+  },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish"])
+    ...mapActions(["fetchWishes", "removeWish", "addWish"])
   },
   computed: mapGetters(["allWishes"]),
   created() {
