@@ -124,24 +124,27 @@ body {
   background: #07868f;
   padding: 7px 25px;
   color: #fff;
-  border: 2px solid #07868f;
+  border: 1px solid #07868f;
 }
 .nk-btn:hover {
   cursor: pointer;
   background: #818080;
-  border: 2px solid #818080;
+  border: 1px solid #818080;
 }
 
 .nk-cancel-btn {
   padding: 7px 25px;
   color: #818080;
-  border: 2px solid #818080;
+  border: 1px solid #818080;
   float: right;
   background: #f4f4f4;
+  margin-right: 15px;
 }
 .nk-cancel-btn:hover {
   cursor: pointer;
-  background: #f4f4f4;
+  color: #fff;
+  background: #818080;
+  border: 1px solid #818080;
 }
 
 .user-info {

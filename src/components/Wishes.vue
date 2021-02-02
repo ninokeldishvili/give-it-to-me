@@ -1,6 +1,6 @@
 <template>
   <div class="wish-list">
-    <div class="add-new wish-card" @click="showModal">
+    <div class="add-new wish-card" @click="showModal()">
       +
     </div>
     <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
@@ -41,16 +41,12 @@ export default {
         title: "asfasdfasdf",
         url: "http://google.com"
       },
-      modalVisible: false,
     };
   },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "addWish"]),
-    showModal(){
-      this.modalVisible = true;
-    }
+    ...mapActions(["fetchWishes", "removeWish", "showModal"]),
   },
-  computed: mapGetters(["allWishes"]),
+  computed: mapGetters(["allWishes","modalVisible"]),
   created() {
     this.fetchWishes();
   }

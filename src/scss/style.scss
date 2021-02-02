@@ -158,25 +158,28 @@ body {
   background: $main-green;
   padding: 7px 25px;
   color: #fff;
-  border: 2px solid $main-green;
+  border: 1px solid $main-green;
 
   &:hover {
     cursor: pointer;
     background: $font-color;
-    border: 2px solid $font-color;
+    border: 1px solid $font-color;
   }
 }
 
 .nk-cancel-btn{
   padding: 7px 25px;
   color: $font-color;
-  border: 2px solid $font-color;
+  border: 1px solid $font-color;
   float: right;
   background: $light-color;
-
+  margin-right: 15px;
+  
   &:hover {
     cursor: pointer;
-    background: $light-color;
+    color: #fff;
+    background: $font-color;
+    border: 1px solid $font-color;
   }
 }
 

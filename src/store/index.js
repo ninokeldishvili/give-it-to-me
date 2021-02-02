@@ -4,9 +4,11 @@ import axios from "axios";
 export default createStore({
   state: {
     wishes: [],
+    modalVisible: false,
   },
   getters: {
     allWishes: (state) => state.wishes,
+    modalVisible: (state) => state.modalVisible,
   },
   actions: {
     async fetchWishes({ commit }) {
@@ -33,25 +35,34 @@ export default createStore({
         url: wish.url,
       };
 
-      await axios.post('https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/', data)
+      await axios.post(
+        "https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/",
+        data
+      );
       commit("addWish", data);
     },
-    
+    showModal({ commit }){
+      commit("showModal");
+    },
+    hideModal({ commit }){
+      commit("hideModal");
+    }
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
     removeWish: (state, id) =>
       (state.wishes = state.wishes.filter((g) => g.id != id)),
     addWish: (state, wish) => state.wishes.unshift(wish),
+    showModal: (state) => (state.modalVisible = true),
+    hideModal: (state) => (state.modalVisible = false),
   },
   modules: {},
 });
 
-
 const generateUUID = function() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c){
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
     var r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
-}
+};
