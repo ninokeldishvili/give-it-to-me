@@ -1,5 +1,6 @@
 <template>
-  <div class="nk-modal" v-if="modalVisible">
+<div class="modal-background" v-if="modalVisible">
+  <div class="nk-modal" >
     <Input type="text" label="Description"/>
     <Input type="text" label="Url" />
     <div class="add-wish-btns-container">
@@ -7,6 +8,7 @@
       <Button text="Add Wish" class="add-wish-btn" />
     </div>
   </div>
+</div>
 </template>
 
 <script>

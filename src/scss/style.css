@@ -104,6 +104,18 @@ body {
   outline: none;
 }
 
+.modal-background {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #00000099;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nk-modal {
   height: 300px;
   display: flex;
@@ -162,7 +174,7 @@ body {
   margin-top: 20px;
   margin-left: -85px;
   width: 85%;
-  height: 70vh;
+  height: 69vh;
   max-height: 670px;
   border-radius: 40px;
   background-color: #f4f4f4;
@@ -181,7 +193,7 @@ body {
 }
 .wish-list .wish-card:hover .img-container .overlay {
   display: block;
-  background: rgba(0, 0, 0, 0.3);
+  background: #0000004d;
 }
 .wish-list .wish-card:hover .img-container .option-btns {
   opacity: 1;
@@ -203,12 +215,12 @@ body {
   height: 100%;
 }
 .wish-list .wish-card .img-container .overlay {
-  background: rgba(0, 0, 0, 0);
+  background: #00000000;
   transition: background 0.5s ease;
 }
 .wish-list .wish-card .img-container .overlay-reserved {
   display: block;
-  background: rgba(0, 0, 0, 0.6);
+  background: #00000099;
 }
 .wish-list .wish-card .img-container img {
   width: 150px;

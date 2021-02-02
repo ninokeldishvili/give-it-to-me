@@ -120,7 +120,7 @@ body {
     font-size: 20px;
   }
 
-  .input-container{
+  .input-container {
     display: flex;
     flex-direction: column;
   }
@@ -136,6 +136,18 @@ body {
       outline: none;
     }
   }
+}
+
+.modal-background {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #00000099;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nk-modal {
@@ -167,14 +179,14 @@ body {
   }
 }
 
-.nk-cancel-btn{
+.nk-cancel-btn {
   padding: 7px 25px;
   color: $font-color;
   border: 1px solid $font-color;
   float: right;
   background: $light-color;
   margin-right: 15px;
-  
+
   &:hover {
     cursor: pointer;
     color: #fff;
@@ -198,7 +210,7 @@ body {
   margin-top: 20px;
   margin-left: -85px;
   width: 85%;
-  height: 70vh;
+  height: 69vh;
   max-height: 670px;
   border-radius: 40px;
   background-color: $light-color;
@@ -218,7 +230,7 @@ body {
     }
     &:hover .img-container .overlay {
       display: block;
-      background: rgba(0, 0, 0, 0.3);
+      background: #0000004d;
     }
     &:hover .img-container .option-btns {
       opacity: 1;
@@ -241,13 +253,13 @@ body {
       }
 
       .overlay {
-        background: rgba(0, 0, 0, 0);
+        background: #00000000;
         transition: background 0.5s ease;
       }
 
       .overlay-reserved {
         display: block;
-        background: rgba(0, 0, 0, 0.6);
+        background: #00000099;
       }
 
       img {
