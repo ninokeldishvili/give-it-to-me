@@ -2,7 +2,7 @@
   <div class="nk-input">
     <div class="input-container">
       <label v-if="label">{{ label }}</label>
-      <input :type="type" />
+      <input :type="type" @input="onInputChange" :value="modelValue" />
     </div>
     <Button v-if="hasButton" :text="btnText" />
   </div>
@@ -19,6 +19,9 @@ export default {
       type: String,
       required: true
     },
+    modelValue: {
+      type: String
+    },
     label: {
       type: String,
       required: false
@@ -31,6 +34,11 @@ export default {
     btnText: {
       type: String,
       required: false
+    }
+  },
+  methods: {
+    onInputChange(e) {
+      this.$emit("update:modelValue", e.target.value);
     }
   }
 };

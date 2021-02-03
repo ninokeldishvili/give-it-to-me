@@ -1,14 +1,14 @@
 <template>
-<div class="modal-background" v-if="modalVisible">
-  <div class="nk-modal" >
-    <Input type="text" label="Description"/>
-    <Input type="text" label="Url" />
-    <div class="add-wish-btns-container">
-      <Button text="Cancel" class="nk-cancel-btn" @click="hideModal()"/>
-      <Button text="Add Wish" class="add-wish-btn" />
+  <div class="modal-background" v-if="modalVisible">
+    <div class="nk-modal">
+      <Input type="text" label="Description" v-model="description"/>
+      <Input type="text" label="Url" v-model="url" />
+      <div class="add-wish-btns-container">
+        <Button text="Cancel" class="nk-cancel-btn" @click="hideModal()" />
+        <Button text="Add Wish" class="add-wish-btn" @click="addWish({description,url})"/>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -25,9 +25,14 @@ export default {
       required: true
     }
   },
-    methods: {
-    ...mapActions(["hideModal"]),
+  data() {
+    return {
+      description: "",
+      url: ""
+    };
   },
-  
+  methods: {
+    ...mapActions(["hideModal", "addWish"])
+  }
 };
 </script>

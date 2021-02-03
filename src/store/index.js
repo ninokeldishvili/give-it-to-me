@@ -24,22 +24,22 @@ export default createStore({
       );
       commit("removeWish", id);
     },
-    async addWish({ commit }, wish) {
+    async addWish({ commit }, payload) {
       var data = {
         id: generateUUID(),
-        title: wish.title,
+        title: payload.description,
         img_url:
           "https://lenergeek.com/wp-content/uploads/2019/11/france-image-marche-energie-degrade-LEnergeek.jpg",
         user_id: 1,
-        status: false,
-        url: wish.url,
+        status: true,
+        url: payload.url,
       };
-
       await axios.post(
         "https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/",
         data
       );
       commit("addWish", data);
+      commit("hideModal");
     },
     showModal({ commit }){
       commit("showModal");

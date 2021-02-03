@@ -34,15 +34,6 @@ import Modal from "../components/Modal";
 export default {
   name: "Wishes",
   components: { Button, Modal },
-
-  data() {
-    return {
-      wish: {
-        title: "asfasdfasdf",
-        url: "http://google.com"
-      },
-    };
-  },
   methods: {
     ...mapActions(["fetchWishes", "removeWish", "showModal"]),
   },
