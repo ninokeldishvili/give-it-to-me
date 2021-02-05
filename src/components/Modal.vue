@@ -4,8 +4,8 @@
       <Input type="text" label="Description" v-model="description"/>
       <Input type="text" label="Url" v-model="url" />
       <div class="add-wish-btns-container">
-        <Button text="Cancel" class="nk-cancel-btn" @click="hideModal()" />
-        <Button text="Add Wish" class="add-wish-btn" @click="addWish({description,url})"/>
+        <Button text="Cancel" class="nk-cancel-btn" @click="onModalHide()" />
+        <Button text="Add Wish" class="add-wish-btn" @click="onWishAdd(description,url)"/>
       </div>
     </div>
   </div>
@@ -32,7 +32,19 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["hideModal", "addWish"])
+    ...mapActions(["hideModal", "addWish"]),
+    clearModalData(){
+      this.description = "",
+      this.url = ""
+    },
+    onModalHide(){
+      this.hideModal();
+      this.clearModalData();
+    },
+    onWishAdd(description,url){
+      this.addWish({description,url});
+      this.clearModalData();
+    }
   }
 };
 </script>
