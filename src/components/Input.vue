@@ -1,8 +1,9 @@
 <template>
   <div class="nk-input">
     <div class="input-container">
-      <label v-if="label">{{ label }}</label>
+      <label class="input-label" v-if="label">{{ label }}</label>
       <input :type="type" @input="onInputChange" :value="modelValue" />
+      <label class="invalid-msg" v-if="!isValid">* Please Provide {{label}}</label>
     </div>
     <Button v-if="hasButton" :text="btnText" />
   </div>
@@ -34,6 +35,11 @@ export default {
     btnText: {
       type: String,
       required: false
+    },
+    isValid:{
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   methods: {
