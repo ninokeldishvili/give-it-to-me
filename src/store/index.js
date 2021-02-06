@@ -41,12 +41,12 @@ export default createStore({
       commit("addWish", data);
       commit("hideModal");
     },
-    showModal({ commit }){
+    showModal({ commit }) {
       commit("showModal");
     },
-    hideModal({ commit }){
+    hideModal({ commit }) {
       commit("hideModal");
-    }
+    },
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),

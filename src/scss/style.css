@@ -84,15 +84,15 @@ body {
   margin-bottom: auto;
   display: flex;
 }
-.nk-input label {
-  margin: auto 30px auto 0;
-  font-size: 20px;
-}
 .nk-input .input-container {
   display: flex;
   flex-direction: column;
 }
-.nk-input input {
+.nk-input .input-container .input-label {
+  margin: auto 30px auto 0;
+  font-size: 20px;
+}
+.nk-input .input-container input {
   background-color: #f4f4f4;
   border: 1px solid #b5b5b5;
   padding: 10px 15px;
@@ -100,8 +100,12 @@ body {
   width: 390px;
   color: #818080;
 }
-.nk-input input:focus {
+.nk-input .input-container input:focus {
   outline: none;
+}
+.nk-input .input-container .invalid-msg {
+  color: #ff0000;
+  font-size: 0.7rem;
 }
 
 .modal-background {

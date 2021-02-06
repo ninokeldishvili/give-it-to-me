@@ -115,27 +115,36 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
-  label {
-    margin: auto 30px auto 0;
-    font-size: 20px;
-  }
 
   .input-container {
     display: flex;
     flex-direction: column;
+
+    .input-label {
+      margin: auto 30px auto 0;
+      font-size: 20px;
+    }
+
+    input {
+      background-color: $light-color;
+      border: 1px solid $main-gray;
+      padding: 10px 15px;
+      font-size: 18px;
+      width: 390px;
+      color: $font-color;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .invalid-msg{
+      color: #ff0000;
+      font-size: 0.7rem;
+    }
+  
   }
 
-  input {
-    background-color: $light-color;
-    border: 1px solid $main-gray;
-    padding: 10px 15px;
-    font-size: 18px;
-    width: 390px;
-    color: $font-color;
-    &:focus {
-      outline: none;
-    }
-  }
+
 }
 
 .modal-background {
