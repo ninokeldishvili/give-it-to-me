@@ -182,7 +182,7 @@ body {
   height: 220px;
   margin-bottom: 30px;
   margin-top: 30px;
-  border: 2px solid red;
+  font-size: 9rem;
 }
 .user-info-container .user-info {
   display: flex;
@@ -281,7 +281,7 @@ body {
   display: flex;
   align-items: center;
   border: 1px solid #b5b5b5;
-  font-size: 90px;
+  font-size: 2rem;
   height: 150px;
   cursor: pointer;
 }

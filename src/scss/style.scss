@@ -223,7 +223,7 @@ body {
     height: 220px;
     margin-bottom: 30px;
     margin-top: 30px;
-    border: 2px solid red;
+    font-size: 9rem;
   }
   
   .user-info{
@@ -335,7 +335,7 @@ body {
     display: flex;
     align-items: center;
     border: 1px solid $main-gray;
-    font-size: 90px;
+    font-size: 2rem;
     height: $wish-image-height;
     cursor: pointer;
   }

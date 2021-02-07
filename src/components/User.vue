@@ -1,6 +1,8 @@
 <template>
   <div class="user-info-container">
-    <div class="user-photo"></div>
+    <div class="user-photo">
+      <font-awesome-icon icon="user" class="icon" />
+    </div>
     <div class="user-info">
       <span>Nino Keldishvili</span>
       <span>Ad: Erekle II st. #18</span>

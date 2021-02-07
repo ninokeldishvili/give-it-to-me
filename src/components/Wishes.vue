@@ -1,7 +1,7 @@
 <template>
   <div class="wish-list">
     <div class="add-new wish-card" @click="showModal()">
-      +
+      <font-awesome-icon icon="plus" class="icon" />
     </div>
     <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
       <div class="img-container">
