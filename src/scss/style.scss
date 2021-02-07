@@ -264,6 +264,7 @@ body {
     }
     &:hover .img-container .option-btns {
       opacity: 1;
+      display: block;
     }
     .img-container {
       position: relative;
@@ -272,6 +273,8 @@ body {
       align-items: center;
       display: flex;
       justify-content: center;
+      border: 1px solid $main-gray;
+
 
       .overlay,
       .overlay-reserved {
@@ -292,16 +295,21 @@ body {
         background: #00000099;
       }
 
-      img {
+      .gift-img {
         width: $wish-image-width;
         height: $wish-image-height;
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
       }
 
       .option-btns {
         position: absolute;
         text-align: center;
         opacity: 0;
+        display: none;
         transition: opacity 0.35s ease;
 
         .nk-btn {

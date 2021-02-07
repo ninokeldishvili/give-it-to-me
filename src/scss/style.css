@@ -221,6 +221,7 @@ body {
 }
 .wish-list .wish-card:hover .img-container .option-btns {
   opacity: 1;
+  display: block;
 }
 .wish-list .wish-card .img-container {
   position: relative;
@@ -229,6 +230,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
+  border: 1px solid #b5b5b5;
 }
 .wish-list .wish-card .img-container .overlay,
 .wish-list .wish-card .img-container .overlay-reserved {
@@ -246,15 +248,20 @@ body {
   display: block;
   background: #00000099;
 }
-.wish-list .wish-card .img-container img {
+.wish-list .wish-card .img-container .gift-img {
   width: 150px;
   height: 150px;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
 }
 .wish-list .wish-card .img-container .option-btns {
   position: absolute;
   text-align: center;
   opacity: 0;
+  display: none;
   transition: opacity 0.35s ease;
 }
 .wish-list .wish-card .img-container .option-btns .nk-btn {

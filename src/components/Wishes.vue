@@ -5,7 +5,11 @@
     </div>
     <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
       <div class="img-container">
-        <img :src="wish.img_url" alt="Wish" />
+        <!-- <img class="gift-img" :src="wish.img_url" alt="Wish" /> -->
+        <div class="gift-img">
+          <font-awesome-icon icon="gift" class="icon" />
+        </div>
+
         <div :class="wish.status ? 'overlay' : 'overlay-reserved'"></div>
         <div class="option-btns" v-if="wish.status">
           <a :href="wish.url" target="blank">
@@ -21,7 +25,7 @@
       </div>
       <span>{{ wish.title }}</span>
     </div>
-    <Modal :modalVisible="modalVisible"/>
+    <Modal :modalVisible="modalVisible" />
   </div>
 </template>
 
@@ -35,9 +39,9 @@ export default {
   name: "Wishes",
   components: { Button, Modal },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "showModal"]),
+    ...mapActions(["fetchWishes", "removeWish", "showModal"])
   },
-  computed: mapGetters(["allWishes","modalVisible"]),
+  computed: mapGetters(["allWishes", "modalVisible"]),
   created() {
     this.fetchWishes();
   }
