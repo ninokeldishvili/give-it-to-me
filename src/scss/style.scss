@@ -137,14 +137,11 @@ body {
       }
     }
 
-    .invalid-msg{
+    .invalid-msg {
       color: #ff0000;
       font-size: 0.7rem;
     }
-  
   }
-
-
 }
 
 .modal-background {
@@ -165,8 +162,8 @@ body {
   flex-direction: column;
   position: absolute;
   background: $light-color;
-  padding: 30px;
-  border: 2px solid #b5b5b5;
+  padding: 70px;
+  border: 2px solid $main-gray;
   .add-wish-btns-container {
     margin-top: auto;
     width: 100%;
@@ -211,22 +208,24 @@ body {
   height: 480px;
   border-radius: 40px;
   position: relative;
-  background-color:$light-color;
+  background-color: $light-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 30px 0;
+  -webkit-box-shadow: 0px 0px 35px 5px $main-gray;
+  box-shadow: 0px 0px 35px 5px $main-gray;
 
-  .user-photo{
+  .user-photo {
     width: 220px;
     height: 220px;
     margin-bottom: 30px;
     margin-top: 30px;
     font-size: 9rem;
   }
-  
-  .user-info{
+
+  .user-info {
     display: flex;
     flex-direction: column;
     font-size: 1.3rem;
@@ -245,6 +244,8 @@ body {
   background-color: $light-color;
   padding: 40px 50px 40px 130px;
   overflow: auto;
+  -webkit-box-shadow: 0px 0px 35px 5px $main-gray;
+  box-shadow: 0px 0px 35px 5px $main-gray;
 
   .wish-card {
     margin: 10px;
