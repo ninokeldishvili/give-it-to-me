@@ -1,43 +1,42 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/users">About</router-link>
-  </div>
-  <router-view/>
 
-    <!-- <div class="main">
-    <div class="left-circle">
+
+  <div class="main">
+    <div class="left-circle" style="display:none">
       <div class="left-circle-inner"></div>
     </div>
     <div class="container">
-      <Header />
-      <div style="display:flex">
-        <User/>
-        <Wishes/>
+      <div class="header">
+        <router-link to="/"><img alt="logo" class="main-logo" src="./images/logo.png"/></router-link>
+        <Input type="text" :hasButton="true" btnText="Search" />
+        <div class="user-settings">
+          <div class="user">
+            <font-awesome-icon icon="user" class="icon" />
+          </div>
+          <div class="lang-switch">EN</div>
+        </div>
       </div>
+
     </div>
-    <div class="right-circle">
+    <div class="right-circle" style="display:none" >
       <div class="right-circle-inner"></div>
     </div>
-  </div> -->
+  </div>
 
-
+  <router-view />
 </template>
 
 <script>
-// import Header from "./components/Header.vue";
-// import Wishes from "./components/Wishes.vue";
-// import User from "./components/User.vue"
+import Input from "./components/Input.vue";
 
-// export default {
-//   name: "App",
-//   components: {
-//     Header,
-//     Wishes,
-//     User,
-//   }
-// };
-</script>
+
+export default {
+  name: "App",
+  components: {
+    Input
+  }
+};
+</script> 
 
 <style>
 @import "scss/style.css";
