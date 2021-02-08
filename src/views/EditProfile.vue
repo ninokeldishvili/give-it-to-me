@@ -1,10 +1,10 @@
 <template>
   <div class="edit-profile container">
-    <Input label="First Name" />
-    <Input label="Last Name" />
-    <Input label="Phone Number" />
-    <Input label="Email" />
-    <Input label="Address" />
+    <Input type="text" label="First Name" />
+    <Input type="text" label="Last Name" />
+    <Input type="text" label="Phone Number" />
+    <Input type="text" label="Email" />
+    <Input type="text" label="Address" />
     <Button text="Submit" />
   </div>
 </template>

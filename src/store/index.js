@@ -5,6 +5,7 @@ export default createStore({
   state: {
     wishes: [],
     modalVisible: false,
+    currentUser: {},
   },
   getters: {
     allWishes: (state) => state.wishes,
@@ -25,7 +26,7 @@ export default createStore({
       commit("removeWish", id);
     },
     async addWish({ commit }, payload) {
-      var data = {
+      let data = {
         id: generateUUID(),
         title: payload.description,
         img_url:
@@ -47,6 +48,14 @@ export default createStore({
     hideModal({ commit }) {
       commit("hideModal");
     },
+
+    async getUser({commit}, id){
+      let response = await axios.get(`https://6011797291905e0017be51c6.mockapi.io/api/v1/users/${id}`)
+
+      let currentUser = response.data;
+      console.log(currentUser)
+      commit("getUser", currentUser )
+    }
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
@@ -55,6 +64,7 @@ export default createStore({
     addWish: (state, wish) => state.wishes.unshift(wish),
     showModal: (state) => (state.modalVisible = true),
     hideModal: (state) => (state.modalVisible = false),
+    getUser: (state, currentUser) => state.currentUser = currentUser,
   },
   modules: {},
 });

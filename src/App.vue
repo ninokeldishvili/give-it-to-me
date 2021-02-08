@@ -30,7 +30,6 @@
       <div class="right-circle-inner"></div>
     </div>
   </div>
-
   <router-view />
 </template>
 

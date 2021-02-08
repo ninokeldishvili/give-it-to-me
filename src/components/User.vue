@@ -4,9 +4,9 @@
       <font-awesome-icon icon="user" class="icon" />
     </div>
     <div class="user-info">
-      <span>Nino Keldishvili</span>
-      <span>Ad: Erekle II st. #18</span>
-      <span>Tel: 598903179</span>
+      <span>{{user.firstName}}</span>
+      <span>Ad: {{user.address}}</span>
+      <span>Tel: {{user.phone}}</span>
     </div>
     <Button text="Sign Out" />
   </div>
@@ -17,6 +17,12 @@ import Button from "../components/Button";
 
 export default {
   name: "Header",
+  props:{
+    user: {
+      type: Object,
+      required: false
+    }
+  },
   components: { Button }
 };
 </script>
