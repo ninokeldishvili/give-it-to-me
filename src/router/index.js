@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import EditProfile from '../views/EditProfile.vue'
 import User from '../components/User.vue'
 
 
@@ -17,7 +18,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
    component: User
-
+  },
+  {
+    path: '/edit-profile',
+    name: 'EditProfile',
+    component: EditProfile
   }
 ]
 
