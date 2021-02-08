@@ -9,7 +9,10 @@
       <Input type="text" v-model="currentUser.phone" label="Phone Number" />
       <Input type="text" v-model="currentUser.email" label="Email" />
       <Input type="text" v-model="currentUser.address" label="Address" />
-      <Button text="Submit" />
+      <div class="form-btns">
+        <Button class ="nk-cancel-btn" text="Cancel" @click="onCancelClick()" />
+        <Button text="Submit" @click="updateUser(currentUser)" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +20,7 @@
 <script>
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
-import {mapState,mapActions} from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "EditProfile",
@@ -29,7 +32,10 @@ export default {
     ...mapState(["currentUser"])
   },
   methods: {
-    ...mapActions(["getUser"])
+    ...mapActions(["getUser", "updateUser"]),
+    onCancelClick() {
+      console.log("canceled");
+    }
   },
   mounted() {
     this.getUser(1);

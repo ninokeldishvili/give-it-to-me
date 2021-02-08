@@ -54,6 +54,11 @@ export default createStore({
 
       let currentUser = response.data;
       commit("getUser", currentUser )
+    },
+
+    async updateUser({commit}, currentUser){
+      await axios.put(`https://6011797291905e0017be51c6.mockapi.io/api/v1/users/${currentUser.id}`, currentUser )
+      commit("updateUser", currentUser )
     }
   },
   mutations: {
@@ -64,6 +69,7 @@ export default createStore({
     showModal: (state) => (state.modalVisible = true),
     hideModal: (state) => (state.modalVisible = false),
     getUser: (state, currentUser) => state.currentUser = currentUser,
+    updateUser: (state, currentUser) => state.currentUser = currentUser,
   },
   modules: {},
 });

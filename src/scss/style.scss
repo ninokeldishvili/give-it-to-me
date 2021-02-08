@@ -213,21 +213,6 @@ body {
   }
 }
 
-.nk-cancel-btn {
-  padding: 7px 25px;
-  color: $font-color;
-  border: 1px solid $font-color;
-  float: right;
-  background: $light-color;
-  margin-right: 15px;
-
-  &:hover {
-    cursor: pointer;
-    color: #fff;
-    background: $font-color;
-    border: 1px solid $font-color;
-  }
-}
 
 .user-info-container {
   border: 1px solid $main-gray;
@@ -408,6 +393,29 @@ body {
       margin-top: 30px;
       text-align: center;
     }
+
+    .form-btns{
+      display: flex;
+      justify-content: right;
+
+    }
+  }
+}
+
+
+.nk-cancel-btn {
+  padding: 7px 25px;
+  color: $font-color;
+  border: 1px solid $font-color;
+  float: right;
+  background: $light-color;
+  margin-right: 15px;
+
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background: $font-color;
+    border: 1px solid $font-color;
   }
 }
 
