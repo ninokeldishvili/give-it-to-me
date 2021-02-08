@@ -1,5 +1,11 @@
 <template>
-  <div class="main">
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/users">About</router-link>
+  </div>
+  <router-view/>
+
+    <!-- <div class="main">
     <div class="left-circle">
       <div class="left-circle-inner"></div>
     </div>
@@ -13,22 +19,24 @@
     <div class="right-circle">
       <div class="right-circle-inner"></div>
     </div>
-  </div>
+  </div> -->
+
+
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Wishes from "./components/Wishes.vue";
-import User from "./components/User.vue"
+// import Header from "./components/Header.vue";
+// import Wishes from "./components/Wishes.vue";
+// import User from "./components/User.vue"
 
-export default {
-  name: "App",
-  components: {
-    Header,
-    Wishes,
-    User,
-  }
-};
+// export default {
+//   name: "App",
+//   components: {
+//     Header,
+//     Wishes,
+//     User,
+//   }
+// };
 </script>
 
 <style>
