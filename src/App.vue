@@ -12,6 +12,13 @@
         <div class="user-settings">
           <div class="user">
             <font-awesome-icon icon="user" class="icon" />
+            <div class="profile-dropdown">
+              <ul>
+                <li>My Wishes</li>
+                <li>Edit Profile</li>
+                <li>Sign Out</li>
+              </ul>
+            </div>
           </div>
           <div class="lang-switch">EN</div>
         </div>

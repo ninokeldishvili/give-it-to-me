@@ -57,6 +57,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
 }
 .header .main-logo {
   width: 100px;
@@ -73,6 +74,28 @@ body {
 }
 .user-settings .user:hover {
   cursor: pointer;
+}
+.user-settings .user:hover .profile-dropdown {
+  display: block;
+}
+.user-settings .user .profile-dropdown {
+  position: absolute;
+  background: #f4f4f4;
+  right: 25px;
+  border: 1px solid #b5b5b5;
+  display: none;
+}
+.user-settings .user .profile-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.user-settings .user .profile-dropdown ul li {
+  padding: 0 3em 0 1em;
+  border-bottom: 1px solid #b5b5b5;
+}
+.user-settings .user .profile-dropdown ul li:hover {
+  background: #b5b5b5;
 }
 .user-settings .lang-switch:hover {
   cursor: pointer;
