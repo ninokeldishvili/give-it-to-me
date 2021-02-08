@@ -53,7 +53,6 @@ export default createStore({
       let response = await axios.get(`https://6011797291905e0017be51c6.mockapi.io/api/v1/users/${id}`)
 
       let currentUser = response.data;
-      console.log(currentUser)
       commit("getUser", currentUser )
     }
   },

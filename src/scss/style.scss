@@ -124,6 +124,10 @@ body {
           &:hover {
             background: $main-gray;
           }
+          a {
+            text-decoration: none;
+            color: $font-color;
+          }
         }
       }
     }

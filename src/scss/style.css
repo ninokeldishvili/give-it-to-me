@@ -97,6 +97,10 @@ body {
 .user-settings .user .profile-dropdown ul li:hover {
   background: #b5b5b5;
 }
+.user-settings .user .profile-dropdown ul li a {
+  text-decoration: none;
+  color: #818080;
+}
 .user-settings .lang-switch:hover {
   cursor: pointer;
 }
