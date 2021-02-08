@@ -233,8 +233,7 @@ body {
   text-align: center;
   float: left;
 }
-.wish-list .wish-card:hover .img-container .wish-btns,
-.wish-list .wish-card:hover .img-container .black-hover {
+.wish-list .wish-card:hover .img-container .wish-btns, .wish-list .wish-card:hover .img-container .black-hover {
   display: flex;
 }
 .wish-list .wish-card:hover .img-container .overlay {
@@ -325,6 +324,30 @@ body {
   cursor: pointer;
 }
 
+.edit-profile {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+.edit-profile .user-avatar {
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border: 1px solid #b5b5b5;
+  font-size: 14rem;
+  cursor: pointer;
+}
+.edit-profile .user-info-form-container {
+  margin-left: 100px;
+}
+.edit-profile .user-info-form-container .nk-btn {
+  margin-top: 30px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 1200px) {
   .container {
     width: 100%;
@@ -337,4 +360,4 @@ body {
   .right-circle {
     display: none;
   }
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
