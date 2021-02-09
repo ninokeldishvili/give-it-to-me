@@ -13,16 +13,12 @@ export default createStore({
   },
   actions: {
     async fetchWishes({ commit }) {
-      const response = await axios.get(
-        "https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts"
-      );
+      const response = await axios.get("gifts");
 
       commit("setWishes", response.data);
     },
     async removeWish({ commit }, id) {
-      await axios.delete(
-        `https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/${id}`
-      );
+      await axios.delete(`gifts/${id}`);
       commit("removeWish", id);
     },
     async addWish({ commit }, payload) {
@@ -35,10 +31,7 @@ export default createStore({
         status: true,
         url: payload.url,
       };
-      await axios.post(
-        "https://6011797291905e0017be51c6.mockapi.io/api/v1/gifts/",
-        data
-      );
+      await axios.post("gifts/", data);
       commit("addWish", data);
       commit("hideModal");
     },
@@ -49,17 +42,17 @@ export default createStore({
       commit("hideModal");
     },
 
-    async getUser({commit}, id){
-      let response = await axios.get(`https://6011797291905e0017be51c6.mockapi.io/api/v1/users/${id}`)
+    async getUser({ commit }, id) {
+      let response = await axios.get(`users/${id}`);
 
       let currentUser = response.data;
-      commit("getUser", currentUser )
+      commit("getUser", currentUser);
     },
 
-    async updateUser({commit}, currentUser){
-      await axios.put(`https://6011797291905e0017be51c6.mockapi.io/api/v1/users/${currentUser.id}`, currentUser )
-      commit("updateUser", currentUser )
-    }
+    async updateUser({ commit }, currentUser) {
+      await axios.put(`users/${currentUser.id}`, currentUser);
+      commit("updateUser", currentUser);
+    },
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
@@ -68,8 +61,8 @@ export default createStore({
     addWish: (state, wish) => state.wishes.unshift(wish),
     showModal: (state) => (state.modalVisible = true),
     hideModal: (state) => (state.modalVisible = false),
-    getUser: (state, currentUser) => state.currentUser = currentUser,
-    updateUser: (state, currentUser) => state.currentUser = currentUser,
+    getUser: (state, currentUser) => (state.currentUser = currentUser),
+    updateUser: (state, currentUser) => (state.currentUser = currentUser),
   },
   modules: {},
 });
