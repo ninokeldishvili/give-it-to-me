@@ -4,7 +4,7 @@
       <font-awesome-icon icon="user" class="icon" />
     </div>
     <div class="user-info">
-      <span>{{user.firstName}}</span>
+      <span>{{user.firstName}} {{user.lastName}}</span>
       <span>Ad: {{user.address}}</span>
       <span>Tel: {{user.phone}}</span>
     </div>

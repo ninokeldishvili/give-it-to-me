@@ -34,11 +34,8 @@ export default {
   methods: {
     ...mapActions(["getUser", "updateUser"]),
     onCancelClick() {
-      console.log("canceled");
+      this.getUser(1)
     }
-  },
-  mounted() {
-    this.getUser(1);
   }
 };
 </script>
