@@ -43,6 +43,7 @@ body {
   border-radius: 50%;
   margin-left: -175px;
   margin-top: 200px;
+  position: absolute;
 
   .left-circle-inner {
     background: #818080;
@@ -64,6 +65,8 @@ body {
   border-radius: 50%;
   margin-right: 0px;
   margin-top: -125px;
+  position: absolute;
+  right: 0;
 
   .right-circle-inner {
     background: #818080;
@@ -212,7 +215,6 @@ body {
     border: 1px solid $font-color;
   }
 }
-
 
 .user-info-container {
   border: 1px solid $main-gray;
@@ -394,14 +396,12 @@ body {
       text-align: center;
     }
 
-    .form-btns{
+    .form-btns {
       display: flex;
       justify-content: right;
-
     }
   }
 }
-
 
 .nk-cancel-btn {
   padding: 7px 25px;

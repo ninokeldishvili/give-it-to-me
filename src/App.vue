@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="left-circle" style="display:none">
+    <div class="left-circle">
       <div class="left-circle-inner"></div>
     </div>
     <div class="container">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="right-circle" style="display:none">
+    <div class="right-circle">
       <div class="right-circle-inner"></div>
     </div>
   </div>

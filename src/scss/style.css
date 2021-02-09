@@ -17,6 +17,7 @@ body {
   border-radius: 50%;
   margin-left: -175px;
   margin-top: 200px;
+  position: absolute;
 }
 .left-circle .left-circle-inner {
   background: #818080;
@@ -37,6 +38,8 @@ body {
   border-radius: 50%;
   margin-right: 0px;
   margin-top: -125px;
+  position: absolute;
+  right: 0;
 }
 .right-circle .right-circle-inner {
   background: #818080;
