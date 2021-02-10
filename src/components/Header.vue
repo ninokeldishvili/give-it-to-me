@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <router-link to="/">
-      <img alt="logo" class="main-logo" src="../images/logo.png"/>
+      <img alt="logo" class="main-logo" src="../images/logo.png" />
     </router-link>
     <div class="search">
       <Input type="text" v-model="user" />
@@ -10,9 +10,15 @@
       </div>
       <div v-if="user" class="search-items">
         <ul>
-          <li v-for="user in searchUsers" :key="user.id">
-            {{ user.firstName }} {{ user.lastName }}
-          </li>
+          <router-link to="/"
+            ><li
+              v-for="user in searchUsers"
+              :key="user.id"
+              @click="getSelectedUser(user.id)"
+            >
+              {{ user.firstName }} {{ user.lastName }}
+            </li></router-link
+          >
         </ul>
       </div>
     </div>
@@ -45,7 +51,8 @@ export default {
   components: { Input, Button },
   data() {
     return {
-      user: ""
+      user: "",
+      selectedUser: ""
     };
   },
   computed: {
@@ -62,7 +69,16 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(["fetchUsers"])
+    ...mapActions(["fetchUsers", "getUser"]),
+    getSelectedUser(userId) {
+      this.selectedUser = this.users.find(u => u.id === userId);
+      this.user =
+        this.selectedUser.firstName + " " + this.selectedUser.lastName;
+    },
+    onSearch() {
+      this.getUser(this.selectedUser.id);
+      this.user = "";
+    }
   }
 };
 </script>

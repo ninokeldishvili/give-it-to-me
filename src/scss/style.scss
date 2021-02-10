@@ -343,15 +343,6 @@ body {
     height: $wish-image-height;
     cursor: pointer;
   }
-
-  a {
-    text-decoration: none;
-    color: $font-color;
-    &:hover {
-      color: $hover-font-color;
-      cursor: pointer;
-    }
-  }
 }
 
 .edit-profile {
@@ -412,10 +403,15 @@ ul {
       background: $main-gray;
       cursor: pointer;
     }
-    a {
-      text-decoration: none;
-      color: $font-color;
-    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $font-color;
+  &:hover {
+    color: $hover-font-color;
+    cursor: pointer;
   }
 }
 

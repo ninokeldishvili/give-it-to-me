@@ -289,14 +289,6 @@ body {
   height: 150px;
   cursor: pointer;
 }
-.wish-list a {
-  text-decoration: none;
-  color: #818080;
-}
-.wish-list a:hover {
-  color: #555454;
-  cursor: pointer;
-}
 
 .edit-profile {
   align-items: center;
@@ -354,9 +346,14 @@ ul li:hover {
   background: #b5b5b5;
   cursor: pointer;
 }
-ul li a {
+
+a {
   text-decoration: none;
   color: #818080;
+}
+a:hover {
+  color: #555454;
+  cursor: pointer;
 }
 
 .search {
