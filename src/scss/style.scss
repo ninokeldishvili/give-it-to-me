@@ -103,9 +103,7 @@ body {
 
   .user {
     padding: 0 15px;
-    &:hover {
-      cursor: pointer;
-    }
+
     &:hover .profile-dropdown {
       display: block;
     }
@@ -412,6 +410,7 @@ ul {
     border-bottom: 1px solid #e8e6e6;
     &:hover {
       background: $main-gray;
+      cursor: pointer;
     }
     a {
       text-decoration: none;

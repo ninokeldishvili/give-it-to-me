@@ -75,9 +75,6 @@ body {
 .user-settings .user {
   padding: 0 15px;
 }
-.user-settings .user:hover {
-  cursor: pointer;
-}
 .user-settings .user:hover .profile-dropdown {
   display: block;
 }
@@ -355,6 +352,7 @@ ul li {
 }
 ul li:hover {
   background: #b5b5b5;
+  cursor: pointer;
 }
 ul li a {
   text-decoration: none;
