@@ -3,7 +3,7 @@
     <div class="add-new wish-card" @click="showModal()">
       <font-awesome-icon icon="plus" class="icon" />
     </div>
-    <div class="wish-card" v-for="wish in allWishes" :key="wish.id">
+    <div class="wish-card" v-for="wish in filteredWishes" :key="wish.id">
       <div class="img-container">
         <!-- <img class="gift-img" :src="wish.img_url" alt="Wish" /> -->
         <div class="gift-img">
@@ -31,7 +31,7 @@
 
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
@@ -41,7 +41,13 @@ export default {
   methods: {
     ...mapActions(["fetchWishes", "removeWish", "showModal"])
   },
-  computed: mapGetters(["allWishes", "modalVisible"]),
+  computed: {
+    ...mapGetters(["allWishes", "modalVisible"]),
+    ...mapState(["currentUser"]),
+    filteredWishes() {
+      return this.allWishes.filter(w => w.user_id == this.currentUser.id);
+    }
+  },
   created() {
     this.fetchWishes();
   }
