@@ -4,6 +4,7 @@ import axios from "axios";
 export default createStore({
   state: {
     wishes: [],
+    users:[],
     modalVisible: false,
     currentUser: {},
   },
@@ -27,7 +28,7 @@ export default createStore({
         title: payload.description,
         img_url:
           "https://lenergeek.com/wp-content/uploads/2019/11/france-image-marche-energie-degrade-LEnergeek.jpg",
-        user_id: 1,
+        user_id: this.state.currentUser.id,
         status: true,
         url: payload.url,
       };
@@ -40,6 +41,12 @@ export default createStore({
     },
     hideModal({ commit }) {
       commit("hideModal");
+    },
+
+    async fetchUsers({commit}) {
+      const response = await axios.get("users");
+
+      commit("setUsers", response.data);
     },
 
     async getUser({ commit }, id) {
@@ -56,6 +63,7 @@ export default createStore({
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
+    setUsers: (state, users) => (state.users = users),
     removeWish: (state, id) =>
       (state.wishes = state.wishes.filter((g) => g.id != id)),
     addWish: (state, wish) => state.wishes.unshift(wish),

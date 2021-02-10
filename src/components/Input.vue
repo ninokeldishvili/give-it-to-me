@@ -5,16 +5,13 @@
       <input :type="type" @input="onInputChange" :value="modelValue" />
       <label class="invalid-msg" v-if="!isValid">* Please Provide {{label}}</label>
     </div>
-    <Button v-if="hasButton" :text="btnText" />
   </div>
 </template>
 
 <script>
-import Button from "../components/Button";
 
 export default {
   name: "Input",
-  components: { Button },
   props: {
     type: {
       type: String,
@@ -24,15 +21,6 @@ export default {
       type: String
     },
     label: {
-      type: String,
-      required: false
-    },
-    hasButton: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    btnText: {
       type: String,
       required: false
     },

@@ -88,22 +88,6 @@ body {
   border: 1px solid #b5b5b5;
   display: none;
 }
-.user-settings .user .profile-dropdown ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.user-settings .user .profile-dropdown ul li {
-  padding: 0 3em 0 1em;
-  border-bottom: 1px solid #e8e6e6;
-}
-.user-settings .user .profile-dropdown ul li:hover {
-  background: #b5b5b5;
-}
-.user-settings .user .profile-dropdown ul li a {
-  text-decoration: none;
-  color: #818080;
-}
 .user-settings .lang-switch:hover {
   cursor: pointer;
 }
@@ -224,6 +208,7 @@ body {
   height: 190px;
   text-align: center;
   float: left;
+  z-index: 1;
 }
 .wish-list .wish-card:hover .img-container .wish-btns, .wish-list .wish-card:hover .img-container .black-hover {
   display: flex;
@@ -357,6 +342,23 @@ body {
   color: #fff;
   background: #818080;
   border: 1px solid #818080;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  padding: 0 3em 0 1em;
+  border-bottom: 1px solid #e8e6e6;
+}
+ul li:hover {
+  background: #b5b5b5;
+}
+ul li a {
+  text-decoration: none;
+  color: #818080;
 }
 
 @media only screen and (max-width: 1200px) {
