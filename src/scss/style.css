@@ -350,7 +350,7 @@ ul {
   margin: 0;
 }
 ul li {
-  padding: 0 3em 0 1em;
+  padding: 10px 15px;
   border-bottom: 1px solid #e8e6e6;
 }
 ul li:hover {
@@ -359,6 +359,21 @@ ul li:hover {
 ul li a {
   text-decoration: none;
   color: #818080;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-items {
+  height: auto;
+  border: 1px solid #b5b5b5;
+  position: absolute;
+  width: 37%;
+  top: 75px;
+  background: #f4f4f4;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 1200px) {

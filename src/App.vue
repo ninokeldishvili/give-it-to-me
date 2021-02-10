@@ -6,22 +6,18 @@
     <div class="container">
       <div class="header">
         <router-link to="/"
-          ><img
-            alt="logo"
-            class="main-logo"
-            src="./images/logo.png"
+          ><img alt="logo" class="main-logo" src="./images/logo.png"
         /></router-link>
-        <div style="display:flex; flex-direction:row">
+        <div class="search">
           <Input type="text" v-model="user" />
           <div @click="onSearch()" style="margin:auto 0">
             <Button text="Search" />
           </div>
-          <div v-if="user"
-            class="search-items"
-            style="height:auto ;border: 1px solid #b5b5b5;position: absolute; width: 37%; top: 75px; background: #f4f4f4; z-index: 2;"
-          >
-            <ul >
-              <li v-for="user in searchUsers" :key="user.id">{{user.firstName}}</li>
+          <div v-if="user" class="search-items">
+            <ul>
+              <li v-for="user in searchUsers" :key="user.id">
+                {{ user.firstName }} {{user.lastName}}
+              </li>
             </ul>
           </div>
         </div>
@@ -71,7 +67,9 @@ export default {
     ...mapState(["currentUser", "users"]),
     searchUsers() {
       return this.users.filter(
-        u => u.firstName.toLowerCase().includes(this.user.toLowerCase()) || u.lastName.toLowerCase().includes(this.user.toLowerCase())
+        u =>
+          u.firstName.toLowerCase().includes(this.user.toLowerCase()) ||
+          u.lastName.toLowerCase().includes(this.user.toLowerCase())
       );
     }
   },
@@ -79,7 +77,7 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(["fetchUsers"]),
+    ...mapActions(["fetchUsers"])
   }
 };
 </script> 

@@ -47,7 +47,7 @@ body {
 
   .left-circle-inner {
     background: #818080;
-    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, #f4f4f4 100%);
+    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, $light-color 100%);
     border: 2px solid $light-color;
     width: 60px;
     height: 60px;
@@ -70,7 +70,7 @@ body {
 
   .right-circle-inner {
     background: #818080;
-    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, #f4f4f4 100%);
+    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, $light-color 100%);
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -112,12 +112,10 @@ body {
 
     .profile-dropdown {
       position: absolute;
-      background: #f4f4f4;
+      background: $light-color;
       right: 25px;
-      border: 1px solid #b5b5b5;
+      border: 1px solid $main-gray;
       display: none;
-
-
     }
   }
   .lang-switch {
@@ -405,13 +403,12 @@ body {
   }
 }
 
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
   li {
-    padding: 0 3em 0 1em;
+    padding: 10px 15px;
     border-bottom: 1px solid #e8e6e6;
     &:hover {
       background: $main-gray;
@@ -421,6 +418,20 @@ ul {
       color: $font-color;
     }
   }
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+}
+.search-items {
+  height: auto;
+  border: 1px solid #b5b5b5;
+  position: absolute;
+  width: 37%;
+  top: 75px;
+  background: $light-color;
+  z-index: 2;
 }
 
 @media (max-width: 320px) {
