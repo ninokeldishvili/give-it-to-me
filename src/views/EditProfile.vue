@@ -4,14 +4,14 @@
       <font-awesome-icon icon="user" class="icon" />
     </div>
     <div class="user-info-form-container">
-      <Input type="text" v-model="currentUser.firstName" label="First Name" />
-      <Input type="text" v-model="currentUser.lastName" label="Last Name" />
-      <Input type="text" v-model="currentUser.phone" label="Phone Number" />
-      <Input type="text" v-model="currentUser.email" label="Email" />
-      <Input type="text" v-model="currentUser.address" label="Address" />
+      <Input type="text" v-model="loggedUser.firstName" label="First Name" />
+      <Input type="text" v-model="loggedUser.lastName" label="Last Name" />
+      <Input type="text" v-model="loggedUser.phone" label="Phone Number" />
+      <Input type="text" v-model="loggedUser.email" label="Email" />
+      <Input type="text" v-model="loggedUser.address" label="Address" />
       <div class="form-btns">
         <Button class ="nk-cancel-btn" text="Cancel" @click="onCancelClick()" />
-        <Button text="Submit" @click="updateUser(currentUser)" />
+        <Button text="Submit" @click="updateUser(loggedUser)" />
       </div>
     </div>
   </div>
@@ -29,12 +29,12 @@ export default {
     Button
   },
   computed: {
-    ...mapState(["currentUser"])
+    ...mapState(["loggedUser"])
   },
   methods: {
-    ...mapActions(["getUser", "updateUser"]),
+    ...mapActions(["setLoggedUser", "updateUser"]),
     onCancelClick() {
-      this.getUser(1)
+      this.setLoggedUser()
     }
   }
 };

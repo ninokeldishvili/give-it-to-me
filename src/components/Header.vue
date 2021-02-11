@@ -1,24 +1,29 @@
 <template>
   <div class="header">
     <router-link to="/">
-      <img alt="logo" class="main-logo" src="../images/logo.png" />
+      <img
+        @click="goToMyProfile()"
+        alt="logo"
+        class="main-logo"
+        src="../images/logo.png"
+      />
     </router-link>
     <div class="search">
-      <Input type="text" v-model="user" />
+      <Input type="text" v-model="inputUser" />
       <div @click="onSearch()" style="margin:auto 0">
         <Button text="Search" />
       </div>
-      <div v-if="user" class="search-items">
+      <div v-if="inputUser" class="search-items">
         <ul>
-          <router-link to="/"
-            ><li
+          <router-link to="/">
+            <li
               v-for="user in searchUsers"
               :key="user.id"
               @click="getSelectedUser(user.id)"
             >
               {{ user.firstName }} {{ user.lastName }}
-            </li></router-link
-          >
+            </li>
+          </router-link>
         </ul>
       </div>
     </div>
@@ -28,7 +33,9 @@
         <font-awesome-icon icon="user" class="icon" />
         <div class="profile-dropdown">
           <ul>
-            <li><router-link to="/">My Wishes</router-link></li>
+            <li @click="goToMyProfile()">
+              <router-link to="/">My Wishes</router-link>
+            </li>
             <li>
               <router-link to="/edit-profile">Edit Profile</router-link>
             </li>
@@ -51,17 +58,17 @@ export default {
   components: { Input, Button },
   data() {
     return {
-      user: "",
+      inputUser: "",
       selectedUser: ""
     };
   },
   computed: {
-    ...mapState(["currentUser", "users"]),
+    ...mapState(["user", "loggedUser", "users"]),
     searchUsers() {
       return this.users.filter(
         u =>
-          u.firstName.toLowerCase().includes(this.user.toLowerCase()) ||
-          u.lastName.toLowerCase().includes(this.user.toLowerCase())
+          u.firstName.toLowerCase().includes(this.inputUser.toLowerCase()) ||
+          u.lastName.toLowerCase().includes(this.inputUser.toLowerCase())
       );
     }
   },
@@ -69,15 +76,18 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(["fetchUsers", "getUser"]),
+    ...mapActions(["fetchUsers", "getUser", "setLoggedUser"]),
     getSelectedUser(userId) {
       this.selectedUser = this.users.find(u => u.id === userId);
-      this.user =
+      this.inputUser =
         this.selectedUser.firstName + " " + this.selectedUser.lastName;
     },
     onSearch() {
       this.getUser(this.selectedUser.id);
-      this.user = "";
+      this.inputUser = "";
+    },
+    goToMyProfile() {
+      this.setLoggedUser();
     }
   }
 };

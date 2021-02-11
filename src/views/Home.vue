@@ -1,7 +1,7 @@
 <template>
   <div class="home container">
     <div style="display:flex">
-      <User :user="currentUser" />
+      <User :user="userToShow"/>
       <Wishes />
     </div>
   </div>
@@ -20,13 +20,16 @@ export default {
     User
   },
   computed: {
-    ...mapState(["currentUser"])
+    ...mapState(["loggedUser","user"]),
+    userToShow(){
+      return this.loggedUser.id == this.user.id ? this.loggedUser : this.user;
+    }
   },
   methods: {
-    ...mapActions(["getUser"])
+    ...mapActions(["setLoggedUser"])
   },
   mounted() {
-    this.getUser(1);
+    this.setLoggedUser()
   }
 };
 </script>

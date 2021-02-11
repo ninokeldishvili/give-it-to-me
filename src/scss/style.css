@@ -150,12 +150,12 @@ body {
   background: #07868f;
   padding: 7px 25px;
   color: #fff;
-  border: 1px solid #07868f;
+  border: 2px solid #07868f;
 }
 .nk-btn:hover {
   cursor: pointer;
   background: #818080;
-  border: 1px solid #818080;
+  border: 2px solid #818080;
 }
 
 .user-info-container {
@@ -364,6 +364,7 @@ a:hover {
 .search-items {
   height: auto;
   border: 1px solid #b5b5b5;
+  border-top: none;
   position: absolute;
   width: 37%;
   top: 75px;

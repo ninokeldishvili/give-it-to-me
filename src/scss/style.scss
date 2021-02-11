@@ -47,7 +47,12 @@ body {
 
   .left-circle-inner {
     background: #818080;
-    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, $light-color 100%);
+    background: linear-gradient(
+      0deg,
+      #818080 0%,
+      $main-gray 24%,
+      $light-color 100%
+    );
     border: 2px solid $light-color;
     width: 60px;
     height: 60px;
@@ -70,7 +75,12 @@ body {
 
   .right-circle-inner {
     background: #818080;
-    background: linear-gradient(0deg, #818080 0%, $main-gray 24%, $light-color 100%);
+    background: linear-gradient(
+      0deg,
+      #818080 0%,
+      $main-gray 24%,
+      $light-color 100%
+    );
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -188,12 +198,12 @@ body {
   background: $main-green;
   padding: 7px 25px;
   color: #fff;
-  border: 1px solid $main-green;
+  border: 2px solid $main-green;
 
   &:hover {
     cursor: pointer;
     background: $font-color;
-    border: 1px solid $font-color;
+    border: 2px solid $font-color;
   }
 }
 
@@ -422,6 +432,7 @@ a {
 .search-items {
   height: auto;
   border: 1px solid #b5b5b5;
+  border-top: none;
   position: absolute;
   width: 37%;
   top: 75px;

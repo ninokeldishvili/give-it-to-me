@@ -6,7 +6,8 @@ export default createStore({
     wishes: [],
     users:[],
     modalVisible: false,
-    currentUser: {},
+    loggedUser: {},
+    user:{},
   },
   getters: {
     allWishes: (state) => state.wishes,
@@ -28,7 +29,7 @@ export default createStore({
         title: payload.description,
         img_url:
           "https://lenergeek.com/wp-content/uploads/2019/11/france-image-marche-energie-degrade-LEnergeek.jpg",
-        user_id: this.state.currentUser.id,
+        user_id: this.state.loggedUser.id,
         status: true,
         url: payload.url,
       };
@@ -52,13 +53,18 @@ export default createStore({
     async getUser({ commit }, id) {
       let response = await axios.get(`users/${id}`);
 
-      let currentUser = response.data;
-      commit("getUser", currentUser);
+      let user = response.data;
+      commit("getUser", user);
     },
 
-    async updateUser({ commit }, currentUser) {
-      await axios.put(`users/${currentUser.id}`, currentUser);
-      commit("updateUser", currentUser);
+    async updateUser({ commit }, loggedUser) {
+      await axios.put(`users/${loggedUser.id}`, loggedUser);
+      commit("updateUser", loggedUser);
+    },
+
+    setLoggedUser({ commit, dispatch }){
+      dispatch('getUser',1);
+      commit('setLoggedUser')
     },
   },
   mutations: {
@@ -69,8 +75,9 @@ export default createStore({
     addWish: (state, wish) => state.wishes.unshift(wish),
     showModal: (state) => (state.modalVisible = true),
     hideModal: (state) => (state.modalVisible = false),
-    getUser: (state, currentUser) => (state.currentUser = currentUser),
-    updateUser: (state, currentUser) => (state.currentUser = currentUser),
+    getUser: (state, user) => (state.user = user),
+    updateUser: (state, loggedUser) => (state.loggedUser = loggedUser),
+    setLoggedUser: (state) => (state.loggedUser = state.user)
   },
   modules: {},
 });

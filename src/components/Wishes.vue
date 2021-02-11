@@ -43,9 +43,9 @@ export default {
   },
   computed: {
     ...mapGetters(["allWishes", "modalVisible"]),
-    ...mapState(["currentUser"]),
+    ...mapState(["user"]),
     filteredWishes() {
-      return this.allWishes.filter(w => w.user_id == this.currentUser.id);
+      return this.allWishes.filter(w => w.user_id == this.user.id);
     }
   },
   created() {
