@@ -33,13 +33,15 @@
         <font-awesome-icon icon="user" class="icon" />
         <div class="profile-dropdown">
           <ul>
-            <li @click="goToMyProfile()">
-              <router-link to="/">My Wishes</router-link>
-            </li>
-            <li>
-              <router-link to="/edit-profile">Edit Profile</router-link>
-            </li>
-            <li><router-link to="/">Sign Out</router-link></li>
+            <router-link to="/">
+              <li @click="goToMyProfile()">My Wishes</li>
+            </router-link>
+            <router-link to="/edit-profile">
+              <li>Edit Profile</li>
+            </router-link>
+            <router-link to="/">
+              <li>Sign Out</li>
+            </router-link>
           </ul>
         </div>
       </div>

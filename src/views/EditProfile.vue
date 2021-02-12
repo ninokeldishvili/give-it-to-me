@@ -32,9 +32,9 @@ export default {
     ...mapState(["loggedUser"])
   },
   methods: {
-    ...mapActions(["updateUser"]),
+    ...mapActions(["updateUser","setLoggedUser"]),
     onCancelClick() {
-      //this.setLoggedUser()
+      this.setLoggedUser(this.loggedUser.id)
     }
   }
 };
