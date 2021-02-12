@@ -62,9 +62,10 @@ export default createStore({
       commit("updateUser", loggedUser);
     },
 
-    setLoggedUser({ commit, dispatch }){
-      dispatch('getUser',1);
-      commit('setLoggedUser')
+    async setLoggedUser({ commit }){
+      let response = await axios.get(`users/1`);
+      let user = response.data;
+      commit("setLoggedUser", user);
     },
   },
   mutations: {
@@ -77,7 +78,7 @@ export default createStore({
     hideModal: (state) => (state.modalVisible = false),
     getUser: (state, user) => (state.user = user),
     updateUser: (state, loggedUser) => (state.loggedUser = loggedUser),
-    setLoggedUser: (state) => (state.loggedUser = state.user)
+    setLoggedUser: (state,loggedUser) => (state.loggedUser = loggedUser)
   },
   modules: {},
 });

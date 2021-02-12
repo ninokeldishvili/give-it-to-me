@@ -1,6 +1,10 @@
 <template>
   <div class="wish-list">
-    <div class="add-new wish-card" @click="showModal()">
+    <div
+      v-if="loggedUser.id == user.id"
+      class="add-new wish-card"
+      @click="showModal()"
+    >
       <font-awesome-icon icon="plus" class="icon" />
     </div>
     <div class="wish-card" v-for="wish in filteredWishes" :key="wish.id">
@@ -43,9 +47,9 @@ export default {
   },
   computed: {
     ...mapGetters(["allWishes", "modalVisible"]),
-    ...mapState(["user"]),
+    ...mapState(["user", "loggedUser"]),
     filteredWishes() {
-      return this.allWishes.filter(w => w.user_id == this.user.id);
+      return this.allWishes.filter(w => this.user.id ? w.user_id == this.user.id : w.user_id == this.loggedUser.id);
     }
   },
   created() {

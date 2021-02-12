@@ -63,7 +63,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["user", "loggedUser", "users"]),
+    ...mapState(["user", "users", "loggedUser"]),
     searchUsers() {
       return this.users.filter(
         u =>
@@ -76,7 +76,7 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(["fetchUsers", "getUser", "setLoggedUser"]),
+    ...mapActions(["fetchUsers", "getUser"]),
     getSelectedUser(userId) {
       this.selectedUser = this.users.find(u => u.id === userId);
       this.inputUser =
@@ -87,7 +87,8 @@ export default {
       this.inputUser = "";
     },
     goToMyProfile() {
-      this.setLoggedUser();
+      this.getUser(this.loggedUser.id);
+      this.inputUser = "";
     }
   }
 };

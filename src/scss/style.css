@@ -345,15 +345,12 @@ ul li {
 ul li:hover {
   background: #b5b5b5;
   cursor: pointer;
+  color: #555454;
 }
 
 a {
   text-decoration: none;
   color: #818080;
-}
-a:hover {
-  color: #555454;
-  cursor: pointer;
 }
 
 .search {
