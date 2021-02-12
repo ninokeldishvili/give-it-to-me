@@ -14,16 +14,19 @@
           <font-awesome-icon icon="gift" class="icon" />
         </div>
 
-        <div :class="wish.status ? 'overlay' : 'overlay-reserved'"></div>
-        <div class="option-btns" v-if="wish.status">
+        <div :class="!wish.is_reserved ? 'overlay' : 'overlay-reserved'"></div>
+        <div class="option-btns" v-if="!wish.is_reserved">
           <a :href="wish.url" target="blank">
             <Button text="View" />
           </a>
-          <div @click="removeWish(wish.id)">
+          <div @click="removeWish(wish.id)" v-if="user.id == loggedUser.id">
             <Button text="Remove" />
           </div>
+          <div @click="onReserveClick(wish)" v-else>
+            <Button text="Reserve" />
+          </div>
         </div>
-        <div v-if="!wish.status" class="reserved-btn">
+        <div v-if="wish.is_reserved" class="reserved-btn">
           <Button text="Reserved" />
         </div>
       </div>
@@ -43,13 +46,21 @@ export default {
   name: "Wishes",
   components: { Button, Modal },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "showModal"])
+    ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish"]),
+    onReserveClick(wish) {
+      let reservedWish = { ...wish, is_reserved: false };
+      this.reserveWish(reservedWish);
+    }
   },
   computed: {
     ...mapGetters(["allWishes", "modalVisible"]),
     ...mapState(["user", "loggedUser"]),
     filteredWishes() {
-      return this.allWishes.filter(w => this.user.id ? w.user_id == this.user.id : w.user_id == this.loggedUser.id);
+      return this.allWishes.filter(w =>
+        this.user.id
+          ? w.user_id == this.user.id
+          : w.user_id == this.loggedUser.id
+      );
     }
   },
   created() {

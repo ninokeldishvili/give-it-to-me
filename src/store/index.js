@@ -4,10 +4,10 @@ import axios from "axios";
 export default createStore({
   state: {
     wishes: [],
-    users:[],
+    users: [],
     modalVisible: false,
     loggedUser: {},
-    user:{},
+    user: {},
   },
   getters: {
     allWishes: (state) => state.wishes,
@@ -30,7 +30,7 @@ export default createStore({
         img_url:
           "https://lenergeek.com/wp-content/uploads/2019/11/france-image-marche-energie-degrade-LEnergeek.jpg",
         user_id: this.state.loggedUser.id,
-        status: true,
+        is_reserved: true,
         url: payload.url,
       };
       await axios.post("gifts/", data);
@@ -44,7 +44,12 @@ export default createStore({
       commit("hideModal");
     },
 
-    async fetchUsers({commit}) {
+    async reserveWish({ commit }, wish) {
+      await axios.put(`gifts/${wish.id}`, wish);
+      commit("reserveWish", wish);
+    },
+
+    async fetchUsers({ commit }) {
       const response = await axios.get("users");
 
       commit("setUsers", response.data);
@@ -62,7 +67,7 @@ export default createStore({
       commit("updateUser", loggedUser);
     },
 
-    async setLoggedUser({ commit }){
+    async setLoggedUser({ commit }) {
       let response = await axios.get(`users/1`);
       let user = response.data;
       commit("setLoggedUser", user);
@@ -73,12 +78,16 @@ export default createStore({
     setUsers: (state, users) => (state.users = users),
     removeWish: (state, id) =>
       (state.wishes = state.wishes.filter((g) => g.id != id)),
+    reserveWish: (state, wish) => {
+      let wishIndex = state.wishes.findIndex((w) => w.id == wish.id);
+      state.wishes[wishIndex] = wish;
+    },
     addWish: (state, wish) => state.wishes.unshift(wish),
     showModal: (state) => (state.modalVisible = true),
     hideModal: (state) => (state.modalVisible = false),
     getUser: (state, user) => (state.user = user),
     updateUser: (state, loggedUser) => (state.loggedUser = loggedUser),
-    setLoggedUser: (state,loggedUser) => (state.loggedUser = loggedUser)
+    setLoggedUser: (state, loggedUser) => (state.loggedUser = loggedUser),
   },
   modules: {},
 });
