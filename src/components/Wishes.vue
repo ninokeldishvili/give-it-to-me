@@ -14,8 +14,8 @@
           <font-awesome-icon icon="gift" class="icon" />
         </div>
 
-        <div :class="!wish.is_reserved ? 'overlay' : 'overlay-reserved'"></div>
-        <div class="option-btns" v-if="!wish.is_reserved">
+        <div :class="wish.is_reserved && !isLoggedInUser? 'overlay-reserved' : 'overlay'"></div>
+        <div class="option-btns" v-if="!wish.is_reserved || isLoggedInUser">
           <a :href="wish.url" target="blank">
             <Button text="View" />
           </a>
@@ -26,7 +26,7 @@
             <Button text="Reserve" />
           </div>
         </div>
-        <div v-if="wish.is_reserved" class="reserved-btn">
+        <div v-if="wish.is_reserved && !isLoggedInUser" class="reserved-btn">
           <Button text="Reserved" />
         </div>
       </div>
