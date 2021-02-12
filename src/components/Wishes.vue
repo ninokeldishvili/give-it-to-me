@@ -53,11 +53,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["allWishes", "modalVisible"]),
+    ...mapGetters(["allWishes", "modalVisible","isLoggedInUser"]),
     ...mapState(["user", "loggedUser"]),
-    isLoggedInUser(){
-      return this.loggedUser.id == this.user.id || !this.user.id
-    },
     filteredWishes() {
       return this.allWishes.filter(w =>
         this.user.id

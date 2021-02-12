@@ -8,12 +8,13 @@
       <span>Ad: {{user.address}}</span>
       <span>Tel: {{user.phone}}</span>
     </div>
-    <Button text="Sign Out" />
+    <Button text="Sign Out" v-if="isLoggedInUser"/>
   </div>
 </template>
 
 <script>
 import Button from "../components/Button";
+import { mapGetters} from "vuex";
 
 export default {
   name: "Header",
@@ -23,6 +24,9 @@ export default {
       required: false
     }
   },
-  components: { Button }
+  components: { Button },
+  computed:{
+    ...mapGetters(["isLoggedInUser"]),
+  }
 };
 </script>

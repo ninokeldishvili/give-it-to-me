@@ -12,6 +12,7 @@ export default createStore({
   getters: {
     allWishes: (state) => state.wishes,
     modalVisible: (state) => state.modalVisible,
+    isLoggedInUser: (state) => state.loggedUser.id == state.user.id || !state.user.id
   },
   actions: {
     async fetchWishes({ commit }) {
