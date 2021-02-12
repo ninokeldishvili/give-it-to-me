@@ -1,7 +1,7 @@
 <template>
   <div class="wish-list">
     <div
-      v-if="loggedUser.id == user.id"
+      v-if="isLoggedInUser"
       class="add-new wish-card"
       @click="showModal()"
     >
@@ -19,7 +19,7 @@
           <a :href="wish.url" target="blank">
             <Button text="View" />
           </a>
-          <div @click="removeWish(wish.id)" v-if="user.id == loggedUser.id">
+          <div @click="removeWish(wish.id)" v-if="isLoggedInUser">
             <Button text="Remove" />
           </div>
           <div @click="onReserveClick(wish)" v-else>
@@ -55,6 +55,9 @@ export default {
   computed: {
     ...mapGetters(["allWishes", "modalVisible"]),
     ...mapState(["user", "loggedUser"]),
+    isLoggedInUser(){
+      return this.loggedUser.id == this.user.id || !this.user.id
+    },
     filteredWishes() {
       return this.allWishes.filter(w =>
         this.user.id
