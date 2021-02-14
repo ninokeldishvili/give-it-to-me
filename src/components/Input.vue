@@ -2,7 +2,7 @@
   <div class="nk-input">
     <div class="input-container">
       <label class="input-label" v-if="label">{{ label }}</label>
-      <input :type="type" @input="onInputChange" :value="modelValue" />
+      <input :type="type" @input="onInputChange" :value="modelValue" :disabled="disabled"/>
       <label class="invalid-msg" v-if="!isValid">* Please Provide {{label}}</label>
     </div>
   </div>
@@ -28,6 +28,11 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    disabled:{
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {

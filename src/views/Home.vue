@@ -1,7 +1,7 @@
 <template>
   <div class="home container">
     <div style="display:flex">
-      <User :user="userToShow" />
+      <User :user="currentUser" />
       <Wishes />
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapState(["loggedUser", "user"]),
-    userToShow() {
+    currentUser() {
       return this.loggedUser.id == this.user.id || !this.user.id
         ? this.loggedUser
         : this.user;

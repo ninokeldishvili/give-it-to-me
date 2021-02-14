@@ -2,7 +2,7 @@
   <div class="header">
     <router-link to="/">
       <img
-        @click="goToMyProfile()"
+        @click="goToMyWishes()"
         alt="logo"
         class="main-logo"
         src="../images/logo.png"
@@ -34,10 +34,10 @@
         <div class="profile-dropdown">
           <ul>
             <router-link to="/">
-              <li @click="goToMyProfile()">My Wishes</li>
+              <li @click="goToMyWishes()">My Wishes</li>
             </router-link>
             <router-link to="/profile">
-              <li>My Profile</li>
+              <li @click="getUser(loggedUser.id)">My Profile</li>
             </router-link>
             <router-link to="/">
               <li>Sign Out</li>
@@ -88,7 +88,7 @@ export default {
       this.getUser(this.selectedUser.id);
       this.inputUser = "";
     },
-    goToMyProfile() {
+    goToMyWishes() {
       this.getUser(this.loggedUser.id);
       this.inputUser = "";
     }

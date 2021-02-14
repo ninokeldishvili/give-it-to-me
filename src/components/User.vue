@@ -11,7 +11,7 @@
     <div v-if="isLoggedInUser">
       <Button text="Sign Out" />
     </div>
-    <div v-else>
+    <div v-else @click="getUser(user.id)">
       <router-link to="/profile">
         <Button text="View Profile" />
       </router-link>
@@ -21,7 +21,7 @@
 
 <script>
 import Button from "../components/Button";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Header",
@@ -34,6 +34,9 @@ export default {
   components: { Button },
   computed: {
     ...mapGetters(["isLoggedInUser"])
+  },
+  methods:{
+    ...mapActions(["getUser"])
   }
 };
 </script>
