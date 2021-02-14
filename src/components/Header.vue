@@ -15,7 +15,6 @@
       </div>
       <div v-if="inputUser" class="search-items">
         <ul>
-          <router-link to="/">
             <li
               v-for="user in searchUsers"
               :key="user.id"
@@ -23,7 +22,6 @@
             >
               {{ user.firstName }} {{ user.lastName }}
             </li>
-          </router-link>
         </ul>
       </div>
     </div>
