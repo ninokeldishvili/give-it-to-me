@@ -290,13 +290,13 @@ body {
   cursor: pointer;
 }
 
-.edit-profile {
+.profile {
   align-items: center;
   display: flex;
   flex-direction: row;
   margin-top: 50px;
 }
-.edit-profile .user-avatar {
+.profile .user-avatar {
   width: 300px;
   height: 300px;
   justify-content: center;
@@ -306,14 +306,14 @@ body {
   font-size: 14rem;
   cursor: pointer;
 }
-.edit-profile .user-info-form-container {
+.profile .user-info-form-container {
   margin-left: 100px;
 }
-.edit-profile .user-info-form-container .nk-btn {
+.profile .user-info-form-container .nk-btn {
   margin-top: 30px;
   text-align: center;
 }
-.edit-profile .user-info-form-container .form-btns {
+.profile .user-info-form-container .form-btns {
   display: flex;
   justify-content: right;
 }

@@ -36,8 +36,8 @@
             <router-link to="/">
               <li @click="goToMyProfile()">My Wishes</li>
             </router-link>
-            <router-link to="/edit-profile">
-              <li>Edit Profile</li>
+            <router-link to="/profile">
+              <li>My Profile</li>
             </router-link>
             <router-link to="/">
               <li>Sign Out</li>

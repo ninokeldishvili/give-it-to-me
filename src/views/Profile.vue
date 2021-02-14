@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-profile container">
+  <div class="profile container">
     <div class="user-avatar">
       <font-awesome-icon icon="user" class="icon" />
     </div>
@@ -23,7 +23,7 @@ import Button from "../components/Button.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "EditProfile",
+  name: "Profile",
   components: {
     Input,
     Button

@@ -4,29 +4,36 @@
       <font-awesome-icon icon="user" class="icon" />
     </div>
     <div class="user-info">
-      <span>{{user.firstName}} {{user.lastName}}</span>
-      <span>Ad: {{user.address}}</span>
-      <span>Tel: {{user.phone}}</span>
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+      <span>Ad: {{ user.address }}</span>
+      <span>Tel: {{ user.phone }}</span>
     </div>
-    <Button text="Sign Out" v-if="isLoggedInUser"/>
+    <div v-if="isLoggedInUser">
+      <Button text="Sign Out" />
+    </div>
+    <div v-else>
+      <router-link to="/profile">
+        <Button text="View Profile" />
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
 import Button from "../components/Button";
-import { mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Header",
-  props:{
+  props: {
     user: {
       type: Object,
       required: false
     }
   },
   components: { Button },
-  computed:{
-    ...mapGetters(["isLoggedInUser"]),
+  computed: {
+    ...mapGetters(["isLoggedInUser"])
   }
 };
 </script>
