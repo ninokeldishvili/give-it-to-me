@@ -37,7 +37,7 @@
             <router-link to="/profile">
               <li @click="getUser(loggedUser.id)">My Profile</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/login">
               <li>Sign Out</li>
             </router-link>
           </ul>

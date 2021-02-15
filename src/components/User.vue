@@ -9,7 +9,9 @@
       <span>Tel: {{ user.phone }}</span>
     </div>
     <div v-if="isLoggedInUser">
-      <Button text="Sign Out" />
+      <router-link to="/login">
+        <Button text="Sign Out" />
+      </router-link>
     </div>
     <div v-else @click="getUser(user.id)">
       <router-link to="/profile">
@@ -35,7 +37,7 @@ export default {
   computed: {
     ...mapGetters(["isLoggedInUser"])
   },
-  methods:{
+  methods: {
     ...mapActions(["getUser"])
   }
 };

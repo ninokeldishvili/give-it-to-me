@@ -17,19 +17,12 @@
 
 <script>
 import Header from "./components/Header.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: {
     Header
   },
-  methods: {
-    ...mapActions(["setLoggedUser"])
-  },
-  mounted() {
-    this.setLoggedUser();
-  }
 };
 </script> 
 

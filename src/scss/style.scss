@@ -437,6 +437,13 @@ a {
   z-index: 2;
 }
 
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 @media (max-width: 320px) {
 }
 
