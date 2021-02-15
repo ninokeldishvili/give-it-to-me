@@ -26,6 +26,16 @@ export default {
   },
   computed: {
     ...mapState(["loggedUser"])
+  },
+  methods:{
+    checkIfLoggedIn(){
+      if(!this.loggedUser.id){
+        this.$router.push('/login')
+      }
+    }
+  },
+  mounted(){
+    this.checkIfLoggedIn();
   }
 };
 </script> 
