@@ -38,7 +38,7 @@
               <li @click="getUser(loggedUser.id)">My Profile</li>
             </router-link>
             <router-link to="/login">
-              <li>Sign Out</li>
+              <li @click="onSignOut()">Sign Out</li>
             </router-link>
           </ul>
         </div>
@@ -76,7 +76,7 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(["fetchUsers", "getUser"]),
+    ...mapActions(["fetchUsers", "getUser","signOut"]),
     getSelectedUser(userId) {
       this.selectedUser = this.users.find(u => u.id === userId);
       this.inputUser =
@@ -89,6 +89,9 @@ export default {
     goToMyWishes() {
       this.getUser(this.loggedUser.id);
       this.inputUser = "";
+    },
+    onSignOut(){
+      this.signOut()
     }
   }
 };

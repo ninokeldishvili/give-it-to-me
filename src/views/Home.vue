@@ -1,5 +1,5 @@
 <template>
-  <div class="home container">
+  <div class="home container" v-if="loggedUser.id">
     <div style="display:flex">
       <User :user="currentUser" />
       <Wishes />

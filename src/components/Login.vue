@@ -1,13 +1,26 @@
 <template>
+<div class="auth-container">
+     <img
+        @click="goToMyWishes()"
+        alt="logo"
+        class="main-logo"
+        src="../images/logo.png"
+      />
+
   <div class="login">
     <Input label="Email" />
     <Input label="Password" />
-    <div @click="onLogin()">
+    <div class="login-btns" @click="onLogin()">
+              <router-link to="/">
+        <Button text="Register" class="nk-cancel-btn"/>
+      </router-link>
       <router-link to="/">
         <Button text="Login" />
       </router-link>
+
     </div>
   </div>
+    </div>
 </template>
 
 <script>

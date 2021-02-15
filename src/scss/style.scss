@@ -436,12 +436,32 @@ a {
   background: $light-color;
   z-index: 2;
 }
-
-.login{
+.auth-container{
+  
   display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 500px;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
+  .main-logo{
+    width:50%;
+    height: auto;
+  }
+
+  .login{
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+  
+    .login-btns{
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
 }
 
 @media (max-width: 320px) {

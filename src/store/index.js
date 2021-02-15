@@ -73,6 +73,10 @@ export default createStore({
       let user = response.data;
       commit("setLoggedUser", user);
     },
+
+    signOut({commit}){
+      commit("signOut");
+    }
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
@@ -89,6 +93,7 @@ export default createStore({
     getUser: (state, user) => (state.user = user),
     updateUser: (state, loggedUser) => (state.loggedUser = loggedUser),
     setLoggedUser: (state, loggedUser) => (state.loggedUser = loggedUser),
+    signOut: (state) => (state.loggedUser = {}),
   },
   modules: {},
 });
