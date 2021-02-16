@@ -10,16 +10,17 @@
       <Input type="text" v-model="currentUser.email" label="Email" :disabled = "!isLoggedInUser"/>
       <Input type="text" v-model="currentUser.address" label="Address" :disabled = "!isLoggedInUser"/>
       <div class="password"  >
-        <Input type="text" v-model="currentUser.password" label="Password" :disabled = "!isLoggedInUser"/>
+        <Input type="password" v-model="currentUser.password" label="Password" :disabled = "!isLoggedInUser"/>
         <div @click="toggleNewPasswordInputs()" class="edit-password-btn">
           <font-awesome-icon icon="pencil-alt" class="icon"/>
         </div>
       </div>
-      <Input type="text" v-model="currentUser.password" label="New Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
-      <Input type="text" v-model="currentUser.password" label="Confirm Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
+      <Input type="password" v-model="newPassword" label="New Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
+      <Input type="password" v-model="confirmPassword" label="Confirm Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
+      <div style="color: red" v-if="!passwordsMatch">{{errorMsg}}</div>
       <div class="form-btns" v-if="isLoggedInUser">
         <Button class="nk-cancel-btn" text="Cancel" @click="onCancelClick()" />
-        <Button text="Submit" @click="updateUser(currentUser)" />
+        <Button text="Submit" @click="onSubmit()" />
       </div>
     </div>
   </div>
@@ -39,6 +40,9 @@ export default {
   data(){
     return{
       editPasswordShow: false,
+      newPassword: "",
+      confirmPassword: "",
+      errorMsg: "Passwords Do Not Match"
     }
   },
   computed: {
@@ -49,6 +53,9 @@ export default {
         ? this.loggedUser
         : this.user;
     },
+    passwordsMatch() {
+      return this.newPassword === this.confirmPassword;
+    }
   },
   methods: {
     ...mapActions(["updateUser", "setLoggedUser"]),
@@ -57,6 +64,17 @@ export default {
     },
     toggleNewPasswordInputs(){
       this.editPasswordShow = !this.editPasswordShow;
+    },
+    onSubmit(){
+      if (this.newPassword && this.confirmPassword) {
+        if (!this.passwordsMatch) {
+          return;
+        } else {
+          this.currentUser.password = this.newPassword;
+          this.updateUser(this.currentUser);
+          this.editPasswordShow = false;
+        }
+      }
     }
   }
 };
