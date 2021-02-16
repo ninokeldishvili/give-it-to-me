@@ -9,6 +9,14 @@
       <Input type="text" v-model="currentUser.phone" label="Phone Number" :disabled = "!isLoggedInUser"/>
       <Input type="text" v-model="currentUser.email" label="Email" :disabled = "!isLoggedInUser"/>
       <Input type="text" v-model="currentUser.address" label="Address" :disabled = "!isLoggedInUser"/>
+      <div class="password"  >
+        <Input type="text" v-model="currentUser.password" label="Password" :disabled = "!isLoggedInUser"/>
+        <div @click="toggleNewPasswordInputs()" class="edit-password-btn">
+          <font-awesome-icon icon="pencil-alt" class="icon"/>
+        </div>
+      </div>
+      <Input type="text" v-model="currentUser.password" label="New Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
+      <Input type="text" v-model="currentUser.password" label="Confirm Password" :disabled = "!isLoggedInUser" v-if="editPasswordShow"/>
       <div class="form-btns" v-if="isLoggedInUser">
         <Button class="nk-cancel-btn" text="Cancel" @click="onCancelClick()" />
         <Button text="Submit" @click="updateUser(currentUser)" />
@@ -28,6 +36,11 @@ export default {
     Input,
     Button
   },
+  data(){
+    return{
+      editPasswordShow: false,
+    }
+  },
   computed: {
     ...mapState(["loggedUser", "user","isLoggedInUser"]),
     ...mapGetters(["isLoggedInUser"]),
@@ -41,6 +54,9 @@ export default {
     ...mapActions(["updateUser", "setLoggedUser"]),
     onCancelClick() {
       this.setLoggedUser(this.currentUser.id);
+    },
+    toggleNewPasswordInputs(){
+      this.editPasswordShow = !this.editPasswordShow;
     }
   }
 };

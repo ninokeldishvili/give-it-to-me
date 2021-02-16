@@ -5,6 +5,7 @@ import {
   faUser,
   faImage,
   faGift,
+  faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -12,4 +13,5 @@ library.add(
   faUser,
   faPlus,
   faGift,
+  faPencilAlt
 );

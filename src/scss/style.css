@@ -291,7 +291,6 @@ body {
 }
 
 .profile {
-  align-items: center;
   display: flex;
   flex-direction: row;
   margin-top: 50px;
@@ -316,6 +315,19 @@ body {
 .profile .user-info-form-container .form-btns {
   display: flex;
   justify-content: right;
+}
+.profile .password {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.profile .password .edit-password-btn {
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.profile .password .edit-password-btn:hover {
+  cursor: pointer;
 }
 
 .nk-cancel-btn {

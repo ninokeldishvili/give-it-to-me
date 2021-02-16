@@ -356,7 +356,6 @@ body {
 }
 
 .profile {
-  align-items: center;
   display: flex;
   flex-direction: row;
   margin-top: 50px;
@@ -382,6 +381,20 @@ body {
     .form-btns {
       display: flex;
       justify-content: right;
+    }
+  }
+
+  .password {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .edit-password-btn{
+      margin-left: 5px;
+      margin-top: 10px;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }
@@ -436,8 +449,7 @@ a {
   background: $light-color;
   z-index: 2;
 }
-.auth-container{
-  
+.auth-container {
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -445,17 +457,17 @@ a {
   justify-content: center;
   align-items: center;
 
-  .main-logo{
-    width:50%;
+  .main-logo {
+    width: 50%;
     height: auto;
   }
 
-  .login{
+  .login {
     flex-direction: column;
     display: flex;
     margin: auto;
-  
-    .login-btns{
+
+    .login-btns {
       margin-top: 30px;
       display: flex;
       flex-direction: row;
