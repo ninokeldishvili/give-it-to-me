@@ -9,7 +9,7 @@
       <Input type="text" v-model="currentUser.phone" label="Phone Number" :disabled = "!isLoggedInUser"/>
       <Input type="text" v-model="currentUser.email" label="Email" :disabled = "!isLoggedInUser"/>
       <Input type="text" v-model="currentUser.address" label="Address" :disabled = "!isLoggedInUser"/>
-      <div class="password"  >
+      <div class="password" v-if="isLoggedInUser" >
         <Input type="password" v-model="currentUser.password" label="Password" :disabled = "!isLoggedInUser"/>
         <div @click="toggleNewPasswordInputs()" class="edit-password-btn">
           <font-awesome-icon icon="pencil-alt" class="icon"/>
