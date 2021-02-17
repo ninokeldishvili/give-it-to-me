@@ -3,7 +3,7 @@
     <div
       v-if="isLoggedInUser"
       class="add-new wish-card"
-      @click="showModal()"
+      @click="onAddWishClick()"
     >
       <font-awesome-icon icon="plus" class="icon" />
     </div>
@@ -14,12 +14,16 @@
           <font-awesome-icon icon="gift" class="icon" />
         </div>
 
-        <div :class="wish.is_reserved && !isLoggedInUser? 'overlay-reserved' : 'overlay'"></div>
+        <div
+          :class="
+            wish.is_reserved && !isLoggedInUser ? 'overlay-reserved' : 'overlay'
+          "
+        ></div>
         <div class="option-btns" v-if="!wish.is_reserved || isLoggedInUser">
           <a :href="wish.url" target="blank">
             <Button text="View" />
           </a>
-          <div @click="removeWish(wish.id)" v-if="isLoggedInUser">
+          <div @click="onRemoveClick()" v-if="isLoggedInUser">
             <Button text="Remove" />
           </div>
           <div @click="onReserveClick(wish)" v-else>
@@ -32,7 +36,7 @@
       </div>
       <span>{{ wish.title }}</span>
     </div>
-    <Modal :modalVisible="modalVisible" />
+    <NKModal :modalVisible="modalVisible" :text="modalText" :type="modalType" />
   </div>
 </template>
 
@@ -40,20 +44,35 @@
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 import Button from "../components/Button";
-import Modal from "../components/Modal";
+import NKModal from "../components/NKModal";
 
 export default {
   name: "Wishes",
-  components: { Button, Modal },
+  components: { Button, NKModal },
+  data() {
+    return {
+      modalText: "",
+      modalType: ""
+    };
+  },
   methods: {
     ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish"]),
     onReserveClick(wish) {
       let reservedWish = { ...wish, is_reserved: false };
       this.reserveWish(reservedWish);
+    },
+    onRemoveClick() {
+      this.modalType = "confirm";
+      this.modalText = "Are You Sure?";
+      this.showModal();
+    },
+    onAddWishClick() {
+      this.modalType = "addWish";
+      this.showModal();
     }
   },
   computed: {
-    ...mapGetters(["allWishes", "modalVisible","isLoggedInUser"]),
+    ...mapGetters(["allWishes", "modalVisible", "isLoggedInUser"]),
     ...mapState(["user", "loggedUser"]),
     filteredWishes() {
       return this.allWishes.filter(w =>

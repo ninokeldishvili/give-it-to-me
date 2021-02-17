@@ -139,12 +139,6 @@ body {
   padding: 70px;
   border: 2px solid #b5b5b5;
 }
-.wish-modal .add-wish-btns-container {
-  margin-top: auto;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
 
 .nk-btn {
   background: #07868f;
@@ -418,6 +412,12 @@ a {
 .nk-modal .ok-btn {
   width: fit-content;
   margin-top: 30px;
+}
+.nk-modal .add-wish-btns-container {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 1200px) {
