@@ -130,7 +130,7 @@ body {
   align-items: center;
 }
 
-.nk-modal {
+.wish-modal {
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -139,7 +139,7 @@ body {
   padding: 70px;
   border: 2px solid #b5b5b5;
 }
-.nk-modal .add-wish-btns-container {
+.wish-modal .add-wish-btns-container {
   margin-top: auto;
   width: 100%;
   display: flex;
@@ -403,6 +403,21 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.nk-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #f4f4f4;
+  padding: 70px;
+  border: 2px solid #b5b5b5;
+  justify-content: center;
+  align-items: center;
+}
+.nk-modal .ok-btn {
+  width: fit-content;
+  margin-top: 30px;
 }
 
 @media only screen and (max-width: 1200px) {

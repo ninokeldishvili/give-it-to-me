@@ -23,30 +23,34 @@
         <Button text="Submit" @click="onSubmit()" />
       </div>
     </div>
+    <NKModal :modalVisible = "modalVisible" :text="modalText"/>
   </div>
 </template>
 
 <script>
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
+import NKModal from "../components/NKModal.vue";
 import { mapState, mapActions,mapGetters } from "vuex";
 
 export default {
   name: "Profile",
   components: {
     Input,
-    Button
+    Button,
+    NKModal
   },
   data(){
     return{
       editPasswordShow: false,
       newPassword: "",
       confirmPassword: "",
-      errorMsg: "Passwords Do Not Match"
+      errorMsg: "Passwords Do Not Match",
+      modalText: "Your Profile Has been updated successfully!"
     }
   },
   computed: {
-    ...mapState(["loggedUser", "user","isLoggedInUser"]),
+    ...mapState(["loggedUser", "user","isLoggedInUser","modalVisible"]),
     ...mapGetters(["isLoggedInUser"]),
     currentUser() {
       return this.loggedUser.id == this.user.id || !this.user.id
@@ -55,15 +59,17 @@ export default {
     },
     passwordsMatch() {
       return this.newPassword === this.confirmPassword;
-    }
+    },
   },
   methods: {
-    ...mapActions(["updateUser", "setLoggedUser"]),
+    ...mapActions(["updateUser", "setLoggedUser","showModal"]),
     onCancelClick() {
       this.setLoggedUser(this.currentUser.id);
     },
     toggleNewPasswordInputs(){
       this.editPasswordShow = !this.editPasswordShow;
+      this.newPassword = '';
+      this.confirmPassword = '';
     },
     onSubmit(){
       if (this.newPassword && this.confirmPassword) {
@@ -75,6 +81,7 @@ export default {
           this.editPasswordShow = false;
         }
       }
+      this.showModal();
     }
   }
 };

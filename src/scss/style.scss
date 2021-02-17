@@ -178,7 +178,7 @@ body {
   align-items: center;
 }
 
-.nk-modal {
+.wish-modal {
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -473,6 +473,22 @@ a {
       flex-direction: row;
       justify-content: center;
     }
+  }
+}
+
+.nk-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: $light-color;
+  padding: 70px;
+  border: 2px solid $main-gray;
+  justify-content: center;
+  align-items: center;
+
+  .ok-btn{
+    width:fit-content;
+    margin-top:30px;
   }
 }
 

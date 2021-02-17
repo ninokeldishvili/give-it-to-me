@@ -1,6 +1,6 @@
 <template>
   <div class="modal-background" v-if="modalVisible">
-    <div class="nk-modal">
+    <div class="wish-modal">
       <Input
         :isValid="isValid.description"
         type="text"
