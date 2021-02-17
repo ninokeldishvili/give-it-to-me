@@ -38,7 +38,7 @@
               <li @click="getUser(loggedUser.id)">My Profile</li>
             </router-link>
             <router-link to="/login">
-              <li @click="onSignOut()">Sign Out</li>
+              <li @click="signOut()">Sign Out</li>
             </router-link>
           </ul>
         </div>
@@ -89,9 +89,6 @@ export default {
     goToMyWishes() {
       this.getUser(this.loggedUser.id);
       this.inputUser = "";
-    },
-    onSignOut(){
-      this.signOut()
     }
   }
 };
