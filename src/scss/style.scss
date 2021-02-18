@@ -178,16 +178,6 @@ body {
   align-items: center;
 }
 
-.wish-modal {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  background: $light-color;
-  padding: 70px;
-  border: 2px solid $main-gray;
-}
-
 .nk-btn {
   background: $main-green;
   padding: 7px 25px;
@@ -480,16 +470,11 @@ a {
   justify-content: center;
   align-items: center;
 
-  .ok-btn {
-    width: fit-content;
+  .btns-container {
     margin-top: 30px;
-  }
-
-  .add-wish-btns-container {
-    margin-top: auto;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 }
 

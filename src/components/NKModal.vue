@@ -2,34 +2,32 @@
   <div class="modal-background" v-if="modalVisible">
     <div class="nk-modal" v-if="type === 'info'">
       <div class="modal-text">{{ text }}</div>
-      <div class="ok-btn" @click="hideModal()">
+      <div class="btns-container" @click="hideModal()">
         <Button text="OK" />
       </div>
     </div>
     <div class="nk-modal" v-if="type === 'confirm'">
       <div class="modal-text">{{ text }}</div>
-      <div class="add-wish-btns-container">
+      <div class="btns-container">
         <Button text="No" class="nk-cancel-btn" @click="hideModal()" />
         <Button text="Yes" @click="hideModal()" />
       </div>
     </div>
-    <div class="modal-background" v-if="type === 'addWish'">
-      <div class="wish-modal">
-        <Input
-          :isValid="isValid.description"
-          type="text"
-          label="Description"
-          v-model="description"
+    <div class="nk-modal" v-if="type === 'addWish'">
+      <Input
+        :isValid="isValid.description"
+        type="text"
+        label="Description"
+        v-model="description"
+      />
+      <Input :isValid="isValid.url" type="text" label="Url" v-model="url" />
+      <div class="btns-container">
+        <Button text="Cancel" class="nk-cancel-btn" @click="onModalHide()" />
+        <Button
+          text="Add Wish"
+          class="add-wish-btn"
+          @click="onWishAdd(description, url)"
         />
-        <Input :isValid="isValid.url" type="text" label="Url" v-model="url" />
-        <div class="add-wish-btns-container">
-          <Button text="Cancel" class="nk-cancel-btn" @click="onModalHide()" />
-          <Button
-            text="Add Wish"
-            class="add-wish-btn"
-            @click="onWishAdd(description, url)"
-          />
-        </div>
       </div>
     </div>
   </div>
