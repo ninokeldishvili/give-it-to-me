@@ -13,11 +13,16 @@ export default createStore({
   getters: {
     allWishes: (state) => state.wishes,
     modalVisible: (state) => state.modalVisible,
-    isLoggedInUser: (state) => state.loggedUser.id == state.user.id || !state.user.id
+    isLoggedInUser: (state) =>
+      state.loggedUser.id == state.user.id || !state.user.id,
   },
   actions: {
     async fetchWishes({ commit }) {
       const response = await axios.get("gifts");
+
+      response.data.sort(function(a, b) {
+        return b.id - a.id;
+      });
 
       commit("setWishes", response.data);
     },
@@ -25,9 +30,9 @@ export default createStore({
       await axios.delete(`gifts/${id}`);
       commit("removeWish", id);
     },
-    async addWish({ commit }, payload) {
+    async addWish({ commit, dispatch }, payload) {
       let data = {
-        id: generateUUID(),
+        uuid: generateUUID(),
         title: payload.description,
         img_url:
           "https://lenergeek.com/wp-content/uploads/2019/11/france-image-marche-energie-degrade-LEnergeek.jpg",
@@ -38,6 +43,7 @@ export default createStore({
       await axios.post("gifts/", data);
       commit("addWish", data);
       commit("hideModal");
+      dispatch("fetchWishes");
     },
     showModal({ commit }) {
       commit("showModal");
@@ -45,7 +51,7 @@ export default createStore({
     hideModal({ commit }) {
       commit("hideModal");
     },
-    confirm({commit}){
+    confirm({ commit }) {
       commit("confirm");
     },
     async reserveWish({ commit }, wish) {
@@ -77,9 +83,9 @@ export default createStore({
       commit("setLoggedUser", user);
     },
 
-    signOut({commit}){
+    signOut({ commit }) {
       commit("signOut");
-    }
+    },
   },
   mutations: {
     setWishes: (state, wishes) => (state.wishes = wishes),
