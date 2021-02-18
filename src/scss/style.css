@@ -296,10 +296,13 @@ body {
   height: 300px;
   justify-content: center;
   display: flex;
-  align-items: center;
   border: 1px solid #b5b5b5;
   font-size: 14rem;
   cursor: pointer;
+}
+.profile .user-avatar .icon {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .profile .user-info-form-container {
   margin-left: 100px;

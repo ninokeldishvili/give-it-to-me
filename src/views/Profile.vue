@@ -1,12 +1,20 @@
 <template>
   <div class="profile container">
     <div class="user-container">
-    <div class="user-avatar">
-      <font-awesome-icon icon="user" class="icon" />
-    </div>
-    <div class="user-info">
-      <span>{{ user.firstName }} {{ user.lastName }}</span>
-    </div>
+      <div class="user-avatar">
+        <img :src="user.avatar" v-if="user.avatar" />
+        <font-awesome-icon icon="user" class="icon" v-else />
+      </div>
+      <div class="user-info">
+        <span>{{ user.firstName }} {{ user.lastName }}</span>
+      </div>
+      <input
+        @change="uploadImage()"
+        type="file"
+        name="photo"
+        ref="userImg"
+        accept="image/*"
+      />
     </div>
     <div class="user-info-form-container">
       <Input
@@ -93,7 +101,8 @@ export default {
       newPassword: "",
       confirmPassword: "",
       errorMsg: "Passwords Do Not Match",
-      modalText: "Your Profile Has been updated successfully!"
+      modalText: "Your Profile Has been updated successfully!",
+      userPhotoB64: null
     };
   },
   computed: {
@@ -129,6 +138,18 @@ export default {
         }
       }
       this.showModal();
+    },
+    uploadImage: function() {
+      var file = document.querySelector("input[type=file]").files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        console.log("file to base64 result:" + reader.result);
+        this.userPhotoB64 = reader.result;
+      };
+      reader.onerror = function(error) {
+        console.log("Error: ", error);
+      };
     }
   }
 };
