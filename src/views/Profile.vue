@@ -1,7 +1,12 @@
 <template>
   <div class="profile container">
+    <div class="user-container">
     <div class="user-avatar">
       <font-awesome-icon icon="user" class="icon" />
+    </div>
+    <div class="user-info">
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+    </div>
     </div>
     <div class="user-info-form-container">
       <Input
