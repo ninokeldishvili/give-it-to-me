@@ -115,6 +115,9 @@ export default {
     },
     passwordsMatch() {
       return this.newPassword === this.confirmPassword;
+    },
+    computedUser(){
+      return {...this.currentUser, avatar: this.userPhotoB64}
     }
   },
   methods: {
@@ -133,10 +136,10 @@ export default {
           return;
         } else {
           this.currentUser.password = this.newPassword;
-          this.updateUser(this.currentUser);
           this.editPasswordShow = false;
         }
       }
+      this.updateUser(this.computedUser);
       this.showModal();
     },
     uploadImage: function() {
