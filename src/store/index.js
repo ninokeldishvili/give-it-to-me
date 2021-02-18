@@ -8,6 +8,7 @@ export default createStore({
     modalVisible: false,
     loggedUser: {},
     user: {},
+    confirmed: false,
   },
   getters: {
     allWishes: (state) => state.wishes,
@@ -44,7 +45,9 @@ export default createStore({
     hideModal({ commit }) {
       commit("hideModal");
     },
-
+    confirm({commit}){
+      commit("confirm");
+    },
     async reserveWish({ commit }, wish) {
       await axios.put(`gifts/${wish.id}`, wish);
       commit("reserveWish", wish);
@@ -94,6 +97,7 @@ export default createStore({
     updateUser: (state, loggedUser) => (state.loggedUser = loggedUser),
     setLoggedUser: (state, loggedUser) => (state.loggedUser = loggedUser),
     signOut: (state) => (state.loggedUser = {}),
+    confirm: (state) => (state.confirmed = !state.confirmed),
   },
   modules: {},
 });

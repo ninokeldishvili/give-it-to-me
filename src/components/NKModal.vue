@@ -10,7 +10,7 @@
       <div class="modal-text">{{ text }}</div>
       <div class="btns-container">
         <Button text="No" class="nk-cancel-btn" @click="hideModal()" />
-        <Button text="Yes" @click="hideModal()" />
+        <Button text="Yes" @click="onConfirm()" />
       </div>
     </div>
     <div class="nk-modal" v-if="type === 'addWish'">
@@ -53,6 +53,10 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    data: {
+      type: Object,
+      required: false
     }
   },
 
@@ -72,7 +76,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["hideModal", "addWish"]),
+    ...mapActions(["hideModal", "addWish","confirm"]),
     clearModalData() {
       (this.description = ""), (this.url = "");
     },
@@ -94,6 +98,10 @@ export default {
       this.addWish({ description, url });
       this.clearModalData();
       this.submited = false;
+    },
+    onConfirm(){
+      this.hideModal();
+      this.confirm();
     }
   }
 };

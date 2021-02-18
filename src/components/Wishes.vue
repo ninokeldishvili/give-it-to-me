@@ -23,7 +23,7 @@
           <a :href="wish.url" target="blank">
             <Button text="View" />
           </a>
-          <div @click="onRemoveClick()" v-if="isLoggedInUser">
+          <div @click="onRemoveClick(wish)" v-if="isLoggedInUser">
             <Button text="Remove" />
           </div>
           <div @click="onReserveClick(wish)" v-else>
@@ -36,7 +36,7 @@
       </div>
       <span>{{ wish.title }}</span>
     </div>
-    <NKModal :modalVisible="modalVisible" :text="modalText" :type="modalType" />
+    <NKModal :modalVisible="modalVisible" :text="modalText" :type="modalType" :data="selectedWish"/>
   </div>
 </template>
 
@@ -52,18 +52,28 @@ export default {
   data() {
     return {
       modalText: "",
-      modalType: ""
+      modalType: "",
+      selectedWish: "",
     };
   },
+  watch:{
+    isModalConfirmed:function(){
+      if(this.isModalConfirmed){
+        this.removeWish(this.selectedWish.id);
+        this.confirm();
+      }
+    }
+  },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish"]),
+    ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish", "confirm"]),
     onReserveClick(wish) {
       let reservedWish = { ...wish, is_reserved: false };
       this.reserveWish(reservedWish);
     },
-    onRemoveClick() {
+    onRemoveClick(wish) {
       this.modalType = "confirm";
       this.modalText = "Are You Sure?";
+      this.selectedWish = wish;
       this.showModal();
     },
     onAddWishClick() {
@@ -73,13 +83,16 @@ export default {
   },
   computed: {
     ...mapGetters(["allWishes", "modalVisible", "isLoggedInUser"]),
-    ...mapState(["user", "loggedUser"]),
+    ...mapState(["user", "loggedUser","confirmed"]),
     filteredWishes() {
       return this.allWishes.filter(w =>
         this.user.id
           ? w.user_id == this.user.id
           : w.user_id == this.loggedUser.id
       );
+    },
+    isModalConfirmed(){
+      return this.confirmed;
     }
   },
   created() {
