@@ -31,12 +31,22 @@
           </div>
         </div>
         <div v-if="wish.is_reserved && !isLoggedInUser" class="reserved-btn">
-          <Button text="Reserved" />
+          <Button
+            @click="onReserveClick(wish)"
+            :text="
+              wish.reserved_by === loggedUser.id ? 'Unreserve' : 'Reserved'
+            "
+          />
         </div>
       </div>
       <span>{{ wish.title }}</span>
     </div>
-    <NKModal :modalVisible="modalVisible" :text="modalText" :type="modalType" :data="selectedWish"/>
+    <NKModal
+      :modalVisible="modalVisible"
+      :text="modalText"
+      :type="modalType"
+      :data="selectedWish"
+    />
   </div>
 </template>
 
@@ -53,21 +63,31 @@ export default {
     return {
       modalText: "",
       modalType: "",
-      selectedWish: "",
+      selectedWish: ""
     };
   },
-  watch:{
-    isModalConfirmed:function(){
-      if(this.isModalConfirmed){
+  watch: {
+    isModalConfirmed: function() {
+      if (this.isModalConfirmed) {
         this.removeWish(this.selectedWish.id);
         this.confirm();
       }
     }
   },
   methods: {
-    ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish", "confirm"]),
+    ...mapActions([
+      "fetchWishes",
+      "removeWish",
+      "showModal",
+      "reserveWish",
+      "confirm"
+    ]),
     onReserveClick(wish) {
-      let reservedWish = { ...wish, is_reserved: true };
+      let reservedWish = {
+        ...wish,
+        is_reserved: !wish.is_reserved,
+        reserved_by: this.loggedUser.id
+      };
       this.reserveWish(reservedWish);
     },
     onRemoveClick(wish) {
@@ -83,7 +103,7 @@ export default {
   },
   computed: {
     ...mapGetters(["allWishes", "modalVisible", "isLoggedInUser"]),
-    ...mapState(["user", "loggedUser","confirmed"]),
+    ...mapState(["user", "loggedUser", "confirmed"]),
     filteredWishes() {
       return this.allWishes.filter(w =>
         this.user.id
@@ -91,7 +111,7 @@ export default {
           : w.user_id == this.loggedUser.id
       );
     },
-    isModalConfirmed(){
+    isModalConfirmed() {
       return this.confirmed;
     }
   },
