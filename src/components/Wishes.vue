@@ -67,7 +67,7 @@ export default {
   methods: {
     ...mapActions(["fetchWishes", "removeWish", "showModal", "reserveWish", "confirm"]),
     onReserveClick(wish) {
-      let reservedWish = { ...wish, is_reserved: false };
+      let reservedWish = { ...wish, is_reserved: true };
       this.reserveWish(reservedWish);
     },
     onRemoveClick(wish) {
