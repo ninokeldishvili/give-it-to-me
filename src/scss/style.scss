@@ -343,6 +343,7 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 50px;
+  justify-content: center;
 
   .user-container {
     display: flex;
@@ -513,6 +514,20 @@ a {
 }
 
 @media (min-width: 900px) and (max-width: 1024px) {
+
+}
+@media (max-width: 900px) {
+  .profile{
+    flex-direction: column;
+    .user-info-container{
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      margin-left: 0;
+    }
+  }
+
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {

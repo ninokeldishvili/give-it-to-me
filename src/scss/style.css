@@ -278,6 +278,7 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 50px;
+  justify-content: center;
 }
 .profile .user-container {
   display: flex;
@@ -421,6 +422,18 @@ a {
   justify-content: center;
 }
 
+@media (max-width: 900px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile .user-info-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .container {
     width: 100%;

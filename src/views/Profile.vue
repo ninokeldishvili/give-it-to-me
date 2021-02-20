@@ -47,17 +47,16 @@
         label="Address"
         :disabled="!isLoggedInUser"
       />
-      <div class="password" v-if="isLoggedInUser">
-        <Input
+     
+        <Input v-if="isLoggedInUser"
           type="password"
           v-model="currentUser.password"
           label="Password"
           :disabled="!isLoggedInUser"
         />
-        <div @click="toggleNewPasswordInputs()" class="edit-password-btn">
+        <div v-if="isLoggedInUser" @click="toggleNewPasswordInputs()" class="edit-password-btn">
           <font-awesome-icon icon="pencil-alt" class="icon" />
         </div>
-      </div>
       <Input
         type="password"
         v-model="newPassword"
