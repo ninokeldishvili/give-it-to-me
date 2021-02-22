@@ -27,14 +27,22 @@
             <Button text="Remove" />
           </div>
           <div @click="onReserveClick(wish)" v-else>
-            <Button text="Reserve" />
+            <Button text="Book" />
           </div>
         </div>
-        <div v-if="wish.is_reserved && !isLoggedInUser" class="reserved-btn" @mouseover="wish.hover = true" @mouseleave="wish.hover = false">
+        <div
+          v-if="wish.is_reserved && !isLoggedInUser"
+          class="reserved-btn"
+          @mouseover="wish.hover = true"
+          @mouseleave="wish.hover = false"
+          :title="wish.reserved_by !== loggedUser.id && 'This wish is booked by someone else' || ''"
+        >
           <Button
             @click="onReserveClick(wish)"
             :text="
-              wish.reserved_by === loggedUser.id && wish.hover ? 'Unbook' : 'Booked'
+              wish.reserved_by === loggedUser.id && wish.hover
+                ? 'Unbook'
+                : 'Booked'
             "
           />
         </div>
@@ -83,6 +91,10 @@ export default {
       "confirm"
     ]),
     onReserveClick(wish) {
+      if (wish.is_reserved && wish.reserved_by !== this.loggedUser.id) {
+        return;
+      }
+
       let reservedWish = {
         ...wish,
         is_reserved: !wish.is_reserved,
