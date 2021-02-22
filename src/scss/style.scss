@@ -323,6 +323,9 @@ body {
           margin: 5px;
           z-index: 1;
           background: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

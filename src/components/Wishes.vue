@@ -30,11 +30,11 @@
             <Button text="Reserve" />
           </div>
         </div>
-        <div v-if="wish.is_reserved && !isLoggedInUser" class="reserved-btn">
+        <div v-if="wish.is_reserved && !isLoggedInUser" class="reserved-btn" @mouseover="wish.hover = true" @mouseleave="wish.hover = false">
           <Button
             @click="onReserveClick(wish)"
             :text="
-              wish.reserved_by === loggedUser.id ? 'Unreserve' : 'Reserved'
+              wish.reserved_by === loggedUser.id && wish.hover ? 'Unbook' : 'Booked'
             "
           />
         </div>

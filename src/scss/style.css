@@ -264,6 +264,9 @@ body {
   z-index: 1;
   background: none;
 }
+.wish-list .wish-card .img-container .reserved-btn .nk-btn:hover {
+  text-decoration: underline;
+}
 .wish-list .add-new {
   justify-content: center;
   display: flex;
