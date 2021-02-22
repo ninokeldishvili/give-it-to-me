@@ -391,17 +391,16 @@ body {
     }
   }
 
-  .password {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    .edit-password-btn {
-      margin-left: 5px;
-      margin-top: 10px;
-      &:hover {
-        cursor: pointer;
-      }
+  .edit-password-btn {
+    &:hover {
+      cursor: pointer;
+    }
+
+    .icon {
+      position: relative;
+      top: -30px;
+      right: 10px;
+      float: right;
     }
   }
 }
@@ -517,20 +516,16 @@ a {
 }
 
 @media (min-width: 900px) and (max-width: 1024px) {
-
 }
 @media (max-width: 900px) {
-  .profile{
+  .profile {
     flex-direction: column;
-    .user-info-container{
-      align-items: center;
-      justify-content: center;
+    .user-info-form-container {
       display: flex;
       flex-direction: column;
-      margin-left: 0;
+      margin:auto;
     }
   }
-
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {

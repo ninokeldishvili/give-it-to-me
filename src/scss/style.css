@@ -319,18 +319,14 @@ body {
   display: flex;
   justify-content: right;
 }
-.profile .password {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.profile .password .edit-password-btn {
-  margin-left: 5px;
-  margin-top: 10px;
-}
-.profile .password .edit-password-btn:hover {
+.profile .edit-password-btn:hover {
   cursor: pointer;
+}
+.profile .edit-password-btn .icon {
+  position: relative;
+  top: -30px;
+  right: 10px;
+  float: right;
 }
 
 .nk-cancel-btn {
@@ -429,12 +425,10 @@ a {
   .profile {
     flex-direction: column;
   }
-  .profile .user-info-container {
-    align-items: center;
-    justify-content: center;
+  .profile .user-info-form-container {
     display: flex;
     flex-direction: column;
-    margin-left: 0;
+    margin: auto;
   }
 }
 @media only screen and (max-width: 1200px) {

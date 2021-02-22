@@ -83,6 +83,9 @@ export default {
         this.selectedUser.firstName + " " + this.selectedUser.lastName;
     },
     onSearch() {
+      if(!this.inputUser){
+        return;
+      }
       this.getUser(this.selectedUser.id);
       this.inputUser = "";
     },
