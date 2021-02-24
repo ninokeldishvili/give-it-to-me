@@ -27,7 +27,7 @@
             <Button text="Remove" />
           </div>
           <div @click="onReserveClick(wish)" v-else>
-            <Button text="Book" />
+            <Button text="Book Now" />
           </div>
         </div>
         <div
