@@ -1,9 +1,7 @@
 <template>
   <div class="home container" v-if="loggedUser.id">
-    <div style="display:flex">
       <User :user="currentUser" />
       <Wishes />
-    </div>
   </div>
 </template>
 

@@ -142,6 +142,10 @@ body {
   border: 2px solid #818080;
 }
 
+.home {
+  display: flex;
+}
+
 .user-info-container {
   border: 1px solid #b5b5b5;
   margin-top: 120px;
@@ -435,10 +439,55 @@ a {
   .header .nk-input {
     width: 200px;
   }
+
+  .home {
+    display: block;
+  }
+
+  .user-info-container {
+    margin-top: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .user-info-container .user-photo {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 4rem;
+    font-size: 4rem;
+  }
+  .user-info-container .user-info {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .wish-list {
+    width: auto;
+    margin-left: 0;
+    padding: 20px 20px;
+  }
 }
 @media (max-width: 600px) {
   .main {
     margin: 0 20px;
+  }
+
+  .header .main-logo {
+    width: 50px;
+  }
+
+  .header .nk-btn {
+    padding: 0px 10px;
+    border-top: 1px solid #07868f;
+  }
+  .header .nk-input input {
+    padding: 6px 10px;
+    font-size: 12px;
   }
 }
 @media only screen and (max-width: 1200px) {
