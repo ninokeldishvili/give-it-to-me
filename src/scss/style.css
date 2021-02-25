@@ -66,6 +66,12 @@ body {
   width: 100px;
   height: auto;
 }
+.header .header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 20px 0;
+}
 
 .user-settings {
   display: flex;
@@ -368,6 +374,11 @@ a {
   color: #818080;
 }
 
+.search-responsive {
+  display: none;
+  flex-direction: row;
+}
+
 .search {
   display: flex;
   flex-direction: row;
@@ -378,8 +389,8 @@ a {
   border: 1px solid #b5b5b5;
   border-top: none;
   position: absolute;
-  width: 37%;
-  top: 75px;
+  width: 380px;
+  top: 88px;
   background: #f4f4f4;
   z-index: 2;
 }
@@ -437,7 +448,7 @@ a {
 }
 @media (max-width: 768px) {
   .header .nk-input {
-    width: 200px;
+    width: 250px;
   }
 
   .home {
@@ -478,7 +489,7 @@ a {
   }
 
   .header .main-logo {
-    width: 50px;
+    width: 80px;
   }
 
   .header .nk-btn {
@@ -488,6 +499,28 @@ a {
   .header .nk-input input {
     padding: 6px 10px;
     font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .search {
+    display: none;
+  }
+
+  .search-responsive {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .search-responsive .search-items {
+    top: 124px;
+    width: 300px;
+  }
+  .search-responsive .nk-input input {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .search-responsive .nk-btn {
+    padding: 0px 10px;
+    border-top: 1px solid #07868f;
   }
 }
 @media only screen and (max-width: 1200px) {

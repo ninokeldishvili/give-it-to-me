@@ -104,6 +104,13 @@ body {
     width: 100px;
     height: auto;
   }
+
+  .header-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 20px 0;
+  }
 }
 
 .user-settings {
@@ -443,8 +450,12 @@ a {
   text-decoration: none;
   color: $font-color;
 }
+.search-responsive{
+  display: none;
+  flex-direction: row;
+}
 
-.search {
+.search{
   display: flex;
   flex-direction: row;
 }
@@ -453,8 +464,8 @@ a {
   border: 1px solid #b5b5b5;
   border-top: none;
   position: absolute;
-  width: 37%;
-  top: 75px;
+  width: 380px;
+  top: 88px;
   background: $light-color;
   z-index: 2;
 }
@@ -533,7 +544,7 @@ a {
 @media (max-width: 768px) {
   .header {
     .nk-input {
-      width: 200px;
+      width: 250px;
     }
   }
 
@@ -576,7 +587,7 @@ a {
   }
 
   .header .main-logo {
-    width: 50px;
+    width: 80px;
   }
 
   .header {
@@ -591,6 +602,28 @@ a {
       }
     }
   }
+}
+
+@media (max-width: 480px) {
+ .search{
+   display: none;
+ }
+ .search-responsive{
+   display: flex;
+   margin-bottom:20px;
+   .search-items{
+    top: 124px;
+    width:300px
+   }
+   .nk-input input{
+    padding: 6px 10px;
+    font-size: 12px;
+   }
+   .nk-btn{
+    padding: 0px 10px;
+    border-top: 1px solid #07868f;
+   }
+ }
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
