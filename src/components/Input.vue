@@ -1,11 +1,9 @@
 <template>
-  <div class="nk-input">
-    <div class="input-container">
+    <div class="nk-input">
       <label class="input-label" v-if="label">{{ label }}</label>
       <input :type="type" @input="onInputChange" :value="modelValue" :disabled="disabled"/>
       <label class="invalid-msg" v-if="!isValid">* Please Provide {{label}}</label>
     </div>
-  </div>
 </template>
 
 <script>

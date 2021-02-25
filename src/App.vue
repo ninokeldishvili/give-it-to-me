@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <div class="main">
-      <div class="left-circle">
-        <div class="left-circle-inner"></div>
-      </div>
-      <div class="container">
-        <Header v-if="loggedUser.id"/>
-      </div>
-      <div class="right-circle">
-        <div class="right-circle-inner"></div>
-      </div>
+  <div class="main">
+    <div class="left-circle">
+      <div class="left-circle-inner"></div>
+    </div>
+    <div class="container">
+      <Header v-if="loggedUser.id" />
+    </div>
+    <div class="right-circle">
+      <div class="right-circle-inner"></div>
     </div>
     <router-view />
   </div>
@@ -17,7 +15,7 @@
 
 <script>
 import Header from "./components/Header.vue";
-import {mapState} from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -27,14 +25,14 @@ export default {
   computed: {
     ...mapState(["loggedUser"])
   },
-  methods:{
-    checkIfLoggedIn(){
-      if(!this.loggedUser.id){
-        this.$router.push('/login')
+  methods: {
+    checkIfLoggedIn() {
+      if (!this.loggedUser.id) {
+        this.$router.push("/login");
       }
     }
   },
-  mounted(){
+  mounted() {
     this.checkIfLoggedIn();
   }
 };

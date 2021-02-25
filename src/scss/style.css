@@ -6,7 +6,7 @@ body {
 }
 
 .main {
-  display: flex;
+  margin: 0 60px;
 }
 
 .left-circle {
@@ -93,27 +93,25 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
-}
-.nk-input .input-container {
-  display: flex;
   flex-direction: column;
+  width: 380px;
 }
-.nk-input .input-container .input-label {
+.nk-input .input-label {
   margin: auto 30px auto 0;
   font-size: 20px;
 }
-.nk-input .input-container input {
+.nk-input input {
   background-color: #f4f4f4;
   border: 1px solid #b5b5b5;
   padding: 10px 15px;
   font-size: 18px;
-  width: 390px;
+  width: 100%;
   color: #818080;
 }
-.nk-input .input-container input:focus {
+.nk-input input:focus {
   outline: none;
 }
-.nk-input .input-container .invalid-msg {
+.nk-input .invalid-msg {
   color: #ff0000;
   font-size: 0.7rem;
 }
@@ -135,6 +133,8 @@ body {
   padding: 7px 25px;
   color: #fff;
   border: 2px solid #07868f;
+  min-width: 70px;
+  text-align: center;
 }
 .nk-btn:hover {
   cursor: pointer;
@@ -429,6 +429,16 @@ a {
     display: flex;
     flex-direction: column;
     margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  .header .nk-input {
+    width: 200px;
+  }
+}
+@media (max-width: 600px) {
+  .main {
+    margin: 0 20px;
   }
 }
 @media only screen and (max-width: 1200px) {

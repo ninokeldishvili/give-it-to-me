@@ -27,7 +27,7 @@ body {
   color: $font-color;
 }
 .main {
-  display: flex;
+  margin: 0 60px;
 }
 
 .left-circle {
@@ -137,32 +137,29 @@ body {
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
+  flex-direction: column;
+  width: 380px;
 
-  .input-container {
-    display: flex;
-    flex-direction: column;
+  .input-label {
+    margin: auto 30px auto 0;
+    font-size: 20px;
+  }
 
-    .input-label {
-      margin: auto 30px auto 0;
-      font-size: 20px;
+  input {
+    background-color: $light-color;
+    border: 1px solid $main-gray;
+    padding: 10px 15px;
+    font-size: 18px;
+    width: 100%;
+    color: $font-color;
+    &:focus {
+      outline: none;
     }
+  }
 
-    input {
-      background-color: $light-color;
-      border: 1px solid $main-gray;
-      padding: 10px 15px;
-      font-size: 18px;
-      width: 390px;
-      color: $font-color;
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .invalid-msg {
-      color: #ff0000;
-      font-size: 0.7rem;
-    }
+  .invalid-msg {
+    color: #ff0000;
+    font-size: 0.7rem;
   }
 }
 
@@ -183,6 +180,8 @@ body {
   padding: 7px 25px;
   color: #fff;
   border: 2px solid $main-green;
+  min-width: 70px;
+  text-align: center;
 
   &:hover {
     cursor: pointer;
@@ -523,8 +522,21 @@ a {
     .user-info-form-container {
       display: flex;
       flex-direction: column;
-      margin:auto;
+      margin: auto;
     }
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    .nk-input {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    margin: 0 20px;
   }
 }
 
