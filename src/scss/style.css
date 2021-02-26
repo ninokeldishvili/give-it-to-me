@@ -90,6 +90,7 @@ body {
   right: 25px;
   border: 1px solid #b5b5b5;
   display: none;
+  z-index: 1;
 }
 .user-settings .lang-switch:hover {
   cursor: pointer;
@@ -179,6 +180,11 @@ body {
   flex-direction: column;
   font-size: 1.3rem;
   margin-bottom: 30px;
+}
+.user-info-container .sign-out-responsive,
+.user-info-container .view-profile-responsive {
+  display: none;
+  font-size: 1.5rem;
 }
 
 .wish-list {
@@ -519,6 +525,22 @@ a {
     font-size: 12px;
   }
   .search-responsive .nk-btn {
+    padding: 0px 10px;
+    border-top: 1px solid #07868f;
+  }
+
+  .user-info-container .user-info {
+    font-size: 0.8rem;
+  }
+  .user-info-container .sign-out,
+.user-info-container .view-profile {
+    display: none;
+  }
+  .user-info-container .sign-out-responsive,
+.user-info-container .view-profile-responsive {
+    display: block;
+  }
+  .user-info-container .nk-btn {
     padding: 0px 10px;
     border-top: 1px solid #07868f;
   }

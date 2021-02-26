@@ -6,6 +6,8 @@ import {
   faImage,
   faGift,
   faPencilAlt,
+  faSignOutAlt,
+  faEye
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -13,5 +15,7 @@ library.add(
   faUser,
   faPlus,
   faGift,
-  faPencilAlt
+  faPencilAlt,
+  faSignOutAlt,
+  faEye
 );

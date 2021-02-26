@@ -10,12 +10,14 @@
     </div>
     <div v-if="isLoggedInUser" @click="signOut()">
       <router-link to="/login">
-        <Button text="Sign Out" />
+        <Button text="Sign Out" class="sign-out" />
+        <font-awesome-icon icon="sign-out-alt" class="icon sign-out-responsive" />
       </router-link>
     </div>
     <div v-else @click="getUser(user.id)">
       <router-link to="/profile">
-        <Button text="View Profile" />
+        <Button text="View Profile" class="view-profile"/>
+        <font-awesome-icon icon="eye" class="icon view-profile-responsive" />
       </router-link>
     </div>
   </div>
@@ -38,7 +40,7 @@ export default {
     ...mapGetters(["isLoggedInUser"])
   },
   methods: {
-    ...mapActions(["getUser","signOut"])
+    ...mapActions(["getUser", "signOut"])
   }
 };
 </script>
