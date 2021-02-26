@@ -40,6 +40,7 @@ body {
   margin-top: -125px;
   position: absolute;
   right: 0;
+  z-index: 1;
 }
 .right-circle .right-circle-inner {
   background: #818080;
@@ -101,10 +102,9 @@ body {
   margin-bottom: auto;
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 100%;
 }
 .nk-input .input-label {
-  margin: auto 30px auto 0;
   font-size: 20px;
 }
 .nk-input input {
@@ -112,7 +112,6 @@ body {
   border: 1px solid #b5b5b5;
   padding: 10px 15px;
   font-size: 18px;
-  width: 100%;
   color: #818080;
 }
 .nk-input input:focus {
@@ -326,6 +325,7 @@ body {
 }
 .profile .user-info-form-container {
   margin-left: 100px;
+  z-index: 2;
 }
 .profile .user-info-form-container .nk-btn {
   margin-top: 30px;
@@ -543,6 +543,20 @@ a {
   .user-info-container .nk-btn {
     padding: 0px 10px;
     border-top: 1px solid #07868f;
+  }
+
+  .user-info-form-container .nk-input input {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .user-info-form-container .input-label {
+    font-size: 14px;
+  }
+
+  .profile .user-avatar {
+    width: 150px;
+    height: 150px;
+    font-size: 8rem;
   }
 }
 @media only screen and (max-width: 1200px) {
